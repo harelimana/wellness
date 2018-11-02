@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% block container %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <h3>Just a selected list of Prestataires </h3>
+                    <hr>
+                    <table class="table-striped">
+                        <tr class="bg-success">
+                            <th>id</th>
+                            <th>nom</th>
+                            <th>tvanumber</th>
+                            <th>telnumber</th>
+                            <th>website</th>
+                            <th>details</th>
+                        </tr>
+
+                        {% for prest in prestataire %}
+                            <tr class="small">
+                                <td>
+                                    {{ prest.id }}
+                                </td>
+                                <td>
+                                    {{ prest.name }}
+                                </td>
+                                <td>
+                                    {{ prest.tvanumber }}
+                                </td>
+
+                                <td>
+                                    {{ prest.telnumber }}
+                                </td>
+                                <td>
+                                    {{ prest.website }}
+                                </td>
+                                <td class="bg-light navbar-btn">
+
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
+{% endblock %}

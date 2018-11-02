@@ -1,0 +1,29 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+    <div class="page-wrapper">
+        {% include("willness/inc/header.html.twig") %}
+        <div class="page-wrapper main">
+            <div class="main-inner">
+                <div class="content">
+                    <div class="mt-80">
+                        {% include("willness/inc/slider.html.twig") %}
+                        {% block content %}
+                    </div>
+                    <div class="container">
+                        {#<div class="block background-white fullwidth pt0 pb0">
+                            <div class="partners">
+
+                            </div><!-- /.partners -->
+                        </div>#}
+                        {% block container %}
+                        {% endblock %}
+                    </div><!-- /.container -->
+
+                </div><!-- /.content -->
+            </div><!-- /.main-inner -->
+        </div><!-- /.main -->
+        {% endblock %}
+        {% include("willness/inc/footer.html.twig") %}
+    </div>
+{% endblock %}

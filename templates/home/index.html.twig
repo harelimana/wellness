@@ -1,0 +1,37 @@
+
+{% extends "layout.html.twig" %}
+{% block container %}
+    <div class="page-header">
+        <h1>Prestataires</h1>
+    </div>
+    <div class="cards-simple-wrapper">
+        <div class="row">
+            {% for prestataire in listPrestataire %}
+                <div class="col-sm-6 col-md-3">
+                    <div class="card-simple" data-background-image="{{ asset(prestataire.logo.link) }}">
+                        <div class="card-simple-background">
+                            <div class="card-simple-content">
+                                <h2><a href="listing-detail.html">{{ prestataire.Name }}</a></h2>
+                                <div class="card-simple-rating">
+                                    <li class="fa fa-star">{{ prestataire.Name }}</li>
+                                    <li class="fa fa-star">{{ prestataire.email }}</li>
+                                    <li class="fa fa-star">{{ prestataire.telnum }}</li>
+                                    <li class="fa fa-star">{{ prestataire.tvanum }}</li>
+                                    <li class="fa fa-star">{{ prestataire.Name }}</li>
+                                </div>
+                                <div class="card-simple-actions">
+                                    <a href="#" class="fa fa-bookmark-o"></a>
+                                    <a href="listing-detail.html" class="fa fa-search"></a>
+                                    <a href="#" class="fa fa-heart-o"></a>
+                                </div>
+                            </div>
+                            {% for service in prestataire.Services %}
+                                <div class="card-simple-label">{{ service.Name }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

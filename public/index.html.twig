@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Just a selected list of Services !{% endblock %}
+
+{% block body %}
+    {% block container %}
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <h3>Just a selected list of Services </h3>
+                    <hr>
+                    <table class="table-striped">
+                        <tr class="bg-success">
+                            <th>id</th>
+                            <th>nom</th>
+                            <th>Description</th>
+                            <th>Mis En Avant</th>
+                            <th>Valide</th>
+                            <th>Image</th>
+                        </tr>
+
+                        {% for serv in service %}
+                            <tr class="small">
+                                <td>
+                                    {{ serv.id }}
+                                </td>
+                                <td>
+                                    {{ serv.name }}
+                                </td>
+                                <td>
+                                    {{ serv.description }}
+                                </td>
+
+                                <td>
+                                    {{ serv.EnAvant }}
+                                </td>
+                                <td>
+                                    {{ serv.Image }}
+                                </td>
+                                <td class="bg-light navbar-btn">
+                                    <a href="{{ path('services_details', {'id':serv.id}) }}" class="card-link">check details</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
+{% endblock %}
+
+
