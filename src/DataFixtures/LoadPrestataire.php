@@ -30,7 +30,7 @@ class CPFixtures extends fixture
             $manager->persist($cp);
         }
 
-        $this->addReference(self::CP_REF, $cps);
+        $this->addReference(self::CP_REF, $cp);
         $manager->flush();
     }
 
@@ -52,7 +52,7 @@ class LOCFixtures extends fixture
             $manager->persist($loc);
         }
 
-        $this->addReference(self::LOC_REF, $locs);
+        $this->addReference(self::LOC_REF, $loc);
         $manager->flush();
     }
 
@@ -74,7 +74,7 @@ class COMMFixtures extends fixture
             $manager->persist($comm);
         }
 
-        $this->addReference(self::COMM_REF, $comms);
+        $this->addReference(self::COMM_REF, $comm);
         $manager->flush();
     }
 
@@ -115,9 +115,9 @@ class LoadPrestataire extends Fixture
         $prestataire->setInscription($data->boolean);
         $prestataire->setPassword($data->password);
 
-        $localite->setLocalite(array_rand($locref, 1));
-        $codePost->setCodePostal(array_rand($cpref, 1));
-        $commune->setCommune(array_rand($comref, 1));
+        $localite->setLocalite(array_rand($locs, 1));
+        $codePost->setCodePostal(array_rand($cps, 1));
+        $commune->setCommune(array_rand($comms, 1));
 
         $prestataire->setName($data->name);
         $prestataire->setTelnumber($data->text);

@@ -88,7 +88,7 @@
           <entry key="image" value="1" />
           <entry key="localite" value="1" />
           <entry key="migration_versions" value="6" />
-          <entry key="php" value="108" />
+          <entry key="php" value="109" />
           <entry key="sql" value="2" />
           <entry key="twig" value="49" />
         </counts>
@@ -98,7 +98,7 @@
           <entry key=".env file" value="3" />
           <entry key="CSS" value="1" />
           <entry key="Database Element" value="9" />
-          <entry key="PHP" value="108" />
+          <entry key="PHP" value="109" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Scratch" value="2" />
           <entry key="Twig" value="49" />
@@ -107,7 +107,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="env" value="16" />
-          <entry key="php" value="4319" />
+          <entry key="php" value="4323" />
           <entry key="twig" value="1421" />
           <entry key="txt" value="8" />
         </counts>
@@ -115,7 +115,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="16" />
-          <entry key="PHP" value="4319" />
+          <entry key="PHP" value="4323" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="Twig" value="1421" />
         </counts>
@@ -138,8 +138,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadPrestataire.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-596">
-              <caret line="78" column="5" lean-forward="true" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+            <state relative-caret-position="485">
+              <caret line="125" column="52" lean-forward="true" selection-start-line="125" selection-start-column="52" selection-end-line="125" selection-end-column="52" />
               <folding>
                 <element signature="e#36#62#0#PHP" expanded="true" />
               </folding>
@@ -148,17 +148,17 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadCodePostal.php">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="39" column="26" lean-forward="true" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/service/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadCodePostal.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -454,12 +454,12 @@
       <workItem from="1541025201744" duration="349000" />
       <workItem from="1541066883093" duration="20220000" />
       <workItem from="1541182999411" duration="14075000" />
-      <workItem from="1541323228495" duration="7684000" />
+      <workItem from="1541323228495" duration="7986000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147933000" />
+    <option name="totallyTimeSpent" value="148235000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1535" height="904" extended-state="6" />
@@ -661,13 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="37" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://1589cda1-c236-4b47-8586-502a7d8ca218/schema/bienetre/table/migration_versions">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -838,10 +831,17 @@
     <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadCodePostal.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="39" column="26" lean-forward="true" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadPrestataire.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-596">
-          <caret line="78" column="5" lean-forward="true" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+        <state relative-caret-position="485">
+          <caret line="125" column="52" lean-forward="true" selection-start-line="125" selection-start-column="52" selection-end-line="125" selection-end-column="52" />
           <folding>
             <element signature="e#36#62#0#PHP" expanded="true" />
           </folding>
