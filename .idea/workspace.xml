@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="24d4df53-3006-4faa-a8e8-8934e83e031d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ServiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ServiceController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataFixtures/LoadPrestataire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/LoadPrestataire.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,9 +87,9 @@
           <entry key="image" value="1" />
           <entry key="localite" value="1" />
           <entry key="migration_versions" value="6" />
-          <entry key="php" value="101" />
+          <entry key="php" value="104" />
           <entry key="sql" value="2" />
-          <entry key="twig" value="48" />
+          <entry key="twig" value="49" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -96,16 +97,16 @@
           <entry key=".env file" value="1" />
           <entry key="CSS" value="1" />
           <entry key="Database Element" value="9" />
-          <entry key="PHP" value="101" />
+          <entry key="PHP" value="104" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Scratch" value="2" />
-          <entry key="Twig" value="48" />
+          <entry key="Twig" value="49" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="env" value="16" />
-          <entry key="php" value="4261" />
+          <entry key="php" value="4280" />
           <entry key="twig" value="1421" />
           <entry key="txt" value="8" />
         </counts>
@@ -113,7 +114,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="16" />
-          <entry key="PHP" value="4261" />
+          <entry key="PHP" value="4280" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="Twig" value="1421" />
         </counts>
@@ -133,37 +134,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadPrestataire.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/service/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="133" column="8" lean-forward="true" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="8" />
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ServiceController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
               <folding>
-                <element signature="e#36#62#0#PHP" expanded="true" />
+                <element signature="e#34#57#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadCodePostal.php">
+        <entry file="file://$PROJECT_DIR$/src/Controller/PrestataireController.php">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadLocalite.php">
+        <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadCommune.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -260,7 +261,6 @@
         <option value="$PROJECT_DIR$/templates/home/listing-service.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/HomeController.php" />
         <option value="$PROJECT_DIR$/templates/service/service.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/ServiceController.php" />
         <option value="$PROJECT_DIR$/templates/service/details_services.html.twig" />
         <option value="$PROJECT_DIR$/templates/prestataire/prestataire_details.html.twig" />
         <option value="$PROJECT_DIR$/templates/prestataire/prestataire.html.twig" />
@@ -281,6 +281,7 @@
         <option value="$PROJECT_DIR$/src/Entity/Prestataire.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/LoadUser.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/LoadPrestataire.php" />
+        <option value="$PROJECT_DIR$/src/Controller/ServiceController.php" />
       </list>
     </option>
   </component>
@@ -402,30 +403,18 @@
               <item name="willness" type="b2602c69:ProjectViewProjectNode" />
               <item name="willness" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="DataFixtures" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="willness" type="b2602c69:ProjectViewProjectNode" />
-              <item name="willness" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="willness" type="b2602c69:ProjectViewProjectNode" />
-              <item name="willness" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="willness" type="b2602c69:ProjectViewProjectNode" />
-              <item name="willness" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="willness" type="b2602c69:ProjectViewProjectNode" />
               <item name="willness" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="willness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="willness" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="willness" type="b2602c69:ProjectViewProjectNode" />
@@ -501,12 +490,12 @@
       <workItem from="1541025201744" duration="349000" />
       <workItem from="1541066883093" duration="20220000" />
       <workItem from="1541182999411" duration="14075000" />
-      <workItem from="1541323228495" duration="3953000" />
+      <workItem from="1541323228495" duration="6659000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144202000" />
+    <option name="totallyTimeSpent" value="146908000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1535" height="904" extended-state="6" />
@@ -647,13 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/prestataire/prestataire.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -686,8 +668,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Migrations/Version20181022182832.php" />
-    <entry file="file://$PROJECT_DIR$/src/Controller/PrestataireController.php" />
-    <entry file="file://$PROJECT_DIR$/src/Controller/ServiceController.php" />
     <entry file="file://$PROJECT_DIR$/src/Repository/InternauteRepository.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -752,13 +732,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/service/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -813,8 +786,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadPrestataire.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="133" column="8" lean-forward="true" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="8" />
+        <state relative-caret-position="960">
+          <caret line="137" lean-forward="true" selection-start-line="137" selection-end-line="137" />
           <folding>
             <element signature="e#36#62#0#PHP" expanded="true" />
           </folding>
@@ -888,6 +861,33 @@
           <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
           <folding>
             <element signature="e#30#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/service/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PrestataireController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ServiceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#34#57#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
