@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\CodePostal;
 use App\Entity\Internaute;
 use App\Entity\Prestataire;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -16,6 +17,7 @@ class LoadUser extends Fixture
         $data= Factory::create();
         for($i=0; $i<10; $i++){
             $prestataire = new Prestataire();
+            $cp = new CodePostal();
 
             $prestataire->setName($data->name);
             $prestataire->setWebsite($data->url);
@@ -30,7 +32,8 @@ class LoadUser extends Fixture
             $prestataire->setLogo($this->getReference("logo". $i));
             $prestataire->setBanni(0);
             $prestataire->setInscription($data->boolean(false));
-            $prestataire->setCodePostal($this->getReference("cp" . $i));
+            $prestataire->setCodePostal($this->getReference("cp" . $i, $cp));
+            $prestataire->setCodePostal($cp->setCodePostal(rand(1000,9000)));
             $prestataire->setLocalite($this->getReference("localite" . $i));
             $prestataire->setCommune($this->getReference("commune" . $i));
             $prestataire->addService($this->getReference("service" . $i));

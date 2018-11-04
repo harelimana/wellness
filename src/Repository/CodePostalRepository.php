@@ -55,7 +55,7 @@ class CodePostalRepository extends ServiceEntityRepository
         $em = $this->getEntityManager();
         $num = rand(1, 10);
         $query = $em->createQuery(
-            'SELECT cp FROM App\Entity\CodePostal cp WHERE cp.id LIKE $num'
+
         );
 
         // returns an array of Product objects
