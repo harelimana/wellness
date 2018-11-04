@@ -26,8 +26,7 @@ class CPFixtures extends fixture
 
         for ($i = 0; $i < 10; $i++) {
             $cp = new CodePostal();
-            $cp = rand(1000, 9000);
-            $cps[] = $cp; //array() of postal-codes
+            $cps[] = $cp->setCodePostal(rand(1000, 9000)); //array() of postal-codes
             $manager->persist($cp);
         }
 
@@ -49,8 +48,7 @@ class LOCFixtures extends fixture
 
         for ($i = 0; $i < 10; $i++) {
             $loc = new Localite();
-            $loc = "Namur" . $i;
-            $locs[] = $loc;
+            $locs[] = $loc->setLocalite("Namur" . $i);;
             $manager->persist($loc);
         }
 
@@ -72,8 +70,7 @@ class COMMFixtures extends fixture
 
         for ($i = 0; $i < 10; $i++) {
             $comm = new Commune();
-            $comm = "Gemeentehuis" . $i;
-            $comms[] = $comm;
+            $comms[] = $comm->setCommune("Gemeentehuis" . $i);;
             $manager->persist($comm);
         }
 
