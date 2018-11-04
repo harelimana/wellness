@@ -87,6 +87,8 @@ class LoadPrestataire extends Fixture
 {
     public function load(ObjectManager $manager)
     {
+       //instantiation
+
         $data = Factory::create();
 
         $cpref = $this->getReference(CPFixtures::CP_REF);
@@ -101,6 +103,8 @@ class LoadPrestataire extends Fixture
         $localite = new Localite();
         $codePost = new CodePostal();
         $commune = new Commune();
+
+        //affectation
 
         $image->setImage($data->text());
         $image->setOrdre(rand(1, 5));
@@ -126,6 +130,7 @@ class LoadPrestataire extends Fixture
 
         $stage->setDescription($data->text);
 
+// hydratation
 
         $manager->persist($localite);
         $manager->persist($codePost);
@@ -142,6 +147,9 @@ class LoadPrestataire extends Fixture
         $this->addReference("prestataire" . $i, $prestataire);
         $this->setReference("stage" . $i, $stage);
 
+        // flushing
+
+        $manager->flush();
     }
 
     public function getDependencies()
