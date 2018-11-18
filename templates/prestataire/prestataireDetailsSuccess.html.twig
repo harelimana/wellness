@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="main">
+    <div class="main-inner">
+        <div class="document-title">
+            <h1>Prestataire</h1>
+        </div>
+        <div class="content">
+            <div class="mt-80 mb80">
+                {% if prestataire.logo is not empty %}
+                <div class="detail-banner" style="background-image: url({{ prestataire.logo.image }});">
+                    {% else  %}
+                    <div class="detail-banner" style="background-image: url({{asset('assets/img/tmp/detail-banner-1.jpg')}});">
+                        {% endif %}
+                        <div class="container">
+                            <div class="detail-banner-left">
+                                <div class="detail-banner-info">
+                                    {% for s in prestataire.services %}
+                                        <a href="{{ path('detail_service',{'slug':s.slug}) }}"><div class="detail-label">{{ s.Name }}</div></a>
+                                    {% endfor %}
+                                </div><!-- /.detail-banner-info -->
+
+                                <h2 class="detail-title">
+                                    {{ prestataire.name }}
+                                </h2>
+                                <div class="detail-banner-address">
+                                    <i class="fa fa-map-o"></i>{{ prestataire.adressRue }} {{ prestataire.adressNumber }},
+                                    {% if prestataire.codePostal is not empty %} {{ prestataire.codePostal.CodePostal }}{% endif %}
+                                    {% if prestataire.commune is not empty %}{{ prestataire.commune.Commune }}{% endif %}
+                                </div><!-- /.detail-banner-address -->
+                            </div><!-- /.detail-banner-left -->
+                        </div><!-- /.container -->
+                    </div><!-- /.detail-banner -->
+
+                </div>
+
+            </div><!-- /.container -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+{% endblock %}

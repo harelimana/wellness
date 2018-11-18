@@ -17,9 +17,10 @@ class Commune
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(name="commune", type="string", length=64, unique=true)
      */
     private $commune;
+
 
     public function getId(): ?int
     {
@@ -36,5 +37,17 @@ class Commune
         $this->commune = $commune;
 
         return $this;
+    }
+
+    public function isDuplicate($commune)
+    {
+        if (!$this->setCommune($commune) || (!null)) {
+            return $this->commune = $this->setCommune($commune);
+        }
+    }
+
+    public function __toString()
+    {
+        return $this->getCommune();
     }
 }

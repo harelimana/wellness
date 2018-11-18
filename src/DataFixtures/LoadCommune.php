@@ -11,16 +11,14 @@ class LoadCommune extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        // Commune = new Commune();
-        // $manager->persist($commune);
 
-        $data= Factory::create("fr_BE");
+        $data = Factory::create('fr_BE');
         for($i=0; $i<10; $i++){
             $commune = new Commune();
-            $commune->setCommune($data->city);
+            $commune->setCommune($data->unique()->city);
 
             $manager->persist($commune);
-            $this->addReference("commune" . $i, $commune);
+            $this->setReference('commune-' . $i, $commune);
         }
 
         $manager->flush();

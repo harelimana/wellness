@@ -7,10 +7,11 @@
                 <h4>{{ service.name }}</h4>
                 <hr>
                 <ul>
+                   {% include('/service/details/serviceDetails.html.twig') %} include
                     {% for serv in service %}
-                        <li><a href="{{ path('services_details', {'id':serv.id}) }}">
-                                {{ serv.description }} )
-                            </a> </li>
+                        <li><a href="{{ path('services_details', {'id':serv.id}) }}"> {{ serv.description }} )
+                            </a>
+                        </li>
                     {% endfor %}
                 </ul>
             </div>

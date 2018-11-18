@@ -19,19 +19,10 @@ class CodePostal
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="code_postal", type="string", length=10, unique=true)
      */
     private $CodePostal;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="codepostal")
-     */
-    private $localite;
-
-    public function __construct()
-    {
-        $this->localite = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -50,34 +41,8 @@ class CodePostal
         return $this;
     }
 
-    /**
-     * @return Collection|User[]
-     */
-    public function getLocalite(): Collection
+    public function __toString()
     {
-        return $this->localite;
-    }
-
-    public function addLocalite(User $localite): self
-    {
-        if (!$this->localite->contains($localite)) {
-            $this->localite[] = $localite;
-            $localite->setCodepostal($this);
-        }
-
-        return $this;
-    }
-
-    public function removeLocalite(User $localite): self
-    {
-        if ($this->localite->contains($localite)) {
-            $this->localite->removeElement($localite);
-            // set the owning side to null (unless already changed)
-            if ($localite->getCodepostal() === $this) {
-                $localite->setCodepostal(null);
-            }
-        }
-
-        return $this;
+        $this->getCodePostal();
     }
 }

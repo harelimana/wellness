@@ -1,0 +1,38 @@
+{% extends 'layout.html.twig' %}
+{% form_theme formedit 'addLayout.html.twig' %}
+{% block content %}
+    {{ form_start(formedit) }}
+    <div class="alert-danger">
+        {{ form_errors(formedit,{'attr': {'novalidate': 'novalidate'}}) }}
+    </div>
+    <h3>
+        {{ form_row(formedit.name,{'attr':{'placeholder':"Nom du Prestataire"}}) }}
+    </h3>
+    <div>
+        {{ form_row(formedit.telnumber,{'attr':{'placeholder':"Nom du Prestataire"}}) }}
+        {{ form_row(formedit.addressRue,{'attr':{'placeholder':"Rue du Prestataire"}}) }}
+        {{ form_row(formedit.email,{'attr':{'placeholder':"Email du Prestataire"}}) }}
+        {{ form_row(formedit.banni,{'attr':{'placeholder':"Est-il banni (o/n)"}}) }}
+        {{ form_row(formedit.inscription,{'attr':{'placeholder':"Est-il inscrit le Prestataire"}}) }}
+        {{ form_row(formedit.inscriptionDate,{'attr':{'placeholder':"Date d'inscription du Prestataire"}}) }}
+        {{ form_row(formedit.password,{'attr':{'placeholder':"Password du Prestataire"}}) }}
+        {{ form_row(formedit.successAttempt,{'attr':{'placeholder':"Tentative de succes Prestataire"}}) }}
+        {{ form_row(formedit.website,{'attr':{'placeholder':"Website du Prestataire"}}) }}
+        {{ form_row(formedit.codepostal,{'attr':{'placeholder':"Code Postalm du Prestataire"}}) }}
+        {{ form_row(formedit.localite,{'attr':{'placeholder':"Localite du Prestataire"}}) }}
+        {{ form_row(formedit.commune,{'attr':{'placeholder':"Commune du Prestataire"}}) }}
+        {{ form_row(formedit.prestataire,{'attr':{'placeholder':"Nom du Prestataire"}}) }}
+        {{ form_row(formedit.image,{'attr':{'placeholder':"Avatar du Prestataire"}}) }}
+        {{ form_row(formedit.logo,{'attr':{'placeholder':"Logo du Prestataire"}}) }}
+
+    </div>
+    <div>
+        {{ form_end(formedit) }}
+        <button type="button" class="btn btn-success">
+            {% if 'modifMode' %}Save Modifications
+            {% else %} Submit
+            {% endif %}
+        </button>
+    </div>
+
+{% endblock %}

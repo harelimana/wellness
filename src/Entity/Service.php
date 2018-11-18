@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Faker\Test\Provider\Collection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ServiceRepository")
@@ -38,17 +39,21 @@ class Service
     private $Description;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"})
+     * @ORM\Column(length=45, unique=true)
      */
-    private $Image;
+    private $slug;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Prestataire", inversedBy="service")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToMany(targetEntity="Prestataire", inversedBy="service", cascade={"persist"})
+     *
      */
-    private $prestataire;
+    private $prestataires;
 
 
+    public function __construct()
+    {
+        $this->prestataires = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,30 +108,40 @@ class Service
         return $this;
     }
 
-    public function getImage(): ?Image
+    /**
+     * @return mixed
+     */
+    public function getSlug()
     {
-        return $this->Image;
+        return $this->slug;
     }
 
-    public function setImage(?Image $Image): self
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug): void
     {
-        $this->Image = $Image;
-
-        return $this;
+        $this->slug = $slug;
     }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getPrestataires(): ArrayCollection
+    {
+        return $this->prestataires;
+    }
+
+    /**
+     * @param ArrayCollection $prestataires
+     */
+    public function setPrestataires(ArrayCollection $prestataires): void
+    {
+        $this->prestataires = $prestataires;
+    }
+
+
     public function __toString() {
-        return $this->name;
-    }
-
-    public function getPrestataire(): ?Prestataire
-    {
-        return $this->prestataire;
-    }
-
-    public function setPrestataire(?Prestataire $prestataire): self
-    {
-        $this->prestataire = $prestataire;
-
-        return $this;
+        return $this->Name;
     }
 }

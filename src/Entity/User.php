@@ -9,8 +9,8 @@ use Symfony\Bundle\MakerBundle\Doctrine;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"internaute" = "Internaute", "prestataire" = "Prestataire"})
+ * @ORM\DiscriminatorColumn(name="userType", type="string")
+ * @ORM\DiscriminatorMap({"user" = "User", "internaute" = "Internaute", "prestataire" = "Prestataire"})
  *
  */
 Abstract class User
@@ -62,29 +62,24 @@ Abstract class User
      */
     private $successAttempt;
 
-
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\CodePostal", inversedBy="localite")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\CodePostal", inversedBy="user", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $codepostal;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Localite")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Localite", inversedBy="user", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $localite;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Commune")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Commune", inversedBy="user", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $commune;
 
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Prestataire", mappedBy="user", cascade={"persist", "remove"})
-     */
-    private $prestataire;
 
     public function getId(): ?int
     {
@@ -176,18 +171,6 @@ Abstract class User
         return $this;
     }
 
-    public function getUserType(): ?string
-    {
-        return $this->userType;
-    }
-
-    public function setUserType(string $userType): self
-    {
-        $this->userType = $userType;
-
-        return $this;
-    }
-
     public function getCodepostal(): ?CodePostal
     {
         return $this->codepostal;
@@ -239,7 +222,7 @@ Abstract class User
     {
         $this->email = $email;
     }
-
+/*
     public function getPrestataire(): ?Prestataire
     {
         return $this->prestataire;
@@ -250,10 +233,11 @@ Abstract class User
         $this->prestataire = $prestataire;
 
         // set the owning side of the relation if necessary
-        if ($this !== $prestataire->getUser()) {
-            $prestataire->setUser($this);
+        if ($this !== $prestataire->getPrestataire()) {
+            $prestataire->setPrestataire($prestataire);
         }
 
         return $this;
     }
+*/
 }

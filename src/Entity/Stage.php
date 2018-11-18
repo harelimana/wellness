@@ -56,13 +56,6 @@ class Stage
      */
     private $tarif;
 
-
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Prestataire", inversedBy="stage")
-     */
-    private $no;
-
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Prestataire", inversedBy="stage")
      * @ORM\JoinColumn(nullable=false)

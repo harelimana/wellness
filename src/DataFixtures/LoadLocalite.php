@@ -11,15 +11,14 @@ class LoadLocalite extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        // $localite = new Localite();
-        // $manager->persist($localite);
+
         $data= Factory::create();
-        for($i=0; $i<10; $i++){
+        for($i=1; $i<=10; $i++){
             $localite = new Localite();
-            $localite->setLocalite($data->city);
+            $localite->setLocalite($data->unique()->city);
 
             $manager->persist($localite);
-            $this->addReference("localite" . $i, $localite);
+            $this->setReference('localite-' . $i, $localite);
         }
 
         $manager->flush();

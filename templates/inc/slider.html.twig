@@ -9,12 +9,14 @@
 
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                    <div class="item-bg" style="background-image: url('assets/img/tmp/slider-2.jpg')"></div>
-                                    <img src="assets/img/tmp/slider-large-2.jpg" alt="">
+
+                                    <div class="item-bg" style="background-image: url({{ asset('assets/img/tmp/slider-2.jpg') }})"></div>
+                                    <img src="{{ asset('assets/img/tmp/slider-large-2.jpg') }}" alt="">
 
                                     <div class="carousel-caption">
+
                                         <div class="hero-slider-content">
-                                            <h1>Willness' Tuning Webspace</h1>
+                                            <h1>Wellness Dream Webspace</h1>
 
                                             <div class="hero-slider-rating">
                                                 <i class="fa fa-star"></i>
@@ -35,7 +37,7 @@
 
                                 <div class="item">
                                     <div class="item-bg" style="background-image: url('assets/img/tmp/slider-1.jpg')"></div>
-                                    <img src="assets/img/tmp/slider-large-1.jpg" alt="">
+                                    <img src={{ asset("assets/img/tmp/slider-large-1.jpg") }} alt="">
 
                                     <div class="carousel-caption">
                                         <div class="hero-slider-content">
@@ -59,8 +61,8 @@
                                 </div><!-- /.item -->
 
                                 <div class="item">
-                                    <div class="item-bg" style="background-image: url('assets/img/tmp/slider-4.jpg')"></div>
-                                    <img src="assets/img/tmp/slider-large-3.jpg" alt="">
+                                    <div class="item-bg" style="background-image: url({{ asset('assets/img/tmp/slider-4.jpg') }})"></div>
+                                    <img src={{ asset("assets/img/tmp/slider-large-3.jpg")  }} alt="">
 
                                     <div class="carousel-caption">
                                         <div class="hero-slider-content">

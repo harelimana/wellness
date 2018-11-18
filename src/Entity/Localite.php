@@ -17,7 +17,7 @@ class Localite
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(name="localite", type="string", length=64, unique=true)
      */
     private $localite;
 
@@ -36,5 +36,10 @@ class Localite
         $this->localite = $localite;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+       $this->getLocalite();
     }
 }

@@ -39,10 +39,9 @@ class Prestataire extends User
     private $website;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(length=45, unique=true)
      */
-    private $user;
+    private $slug;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"})
@@ -58,17 +57,18 @@ class Prestataire extends User
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="prestataire")
      */
-    private $stage;
+    private $stages;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Service", mappedBy="prestataire")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Service", inversedBy="prestataire")
      */
-    private $service;
+    private $services;
 
     public function __construct()
     {
-        $this->stage = new ArrayCollection();
-        $this->service = new ArrayCollection();
+      //  $this->services = new ArrayCollection();
+        $this->stages = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -124,18 +124,6 @@ class Prestataire extends User
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
     public function getImage(): ?Image
     {
         return $this->image;
@@ -161,28 +149,52 @@ class Prestataire extends User
     }
 
     /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug): void
+    {
+        $this->slug = $slug;
+    }
+
+    /**
      * @return Collection|Stage[]
      */
     public function getStage(): Collection
     {
-        return $this->stage;
+        return $this->stages;
     }
 
+    /**
+     * @param Stage $stage
+     * @return Prestataire
+     */
     public function addStage(Stage $stage): self
     {
-        if (!$this->stage->contains($stage)) {
-            $this->stage[] = $stage;
+        if (!$this->stages->contains($stage)) {
+            $this->stages[] = $stage;
             $stage->setPrestataire($this);
         }
 
         return $this;
     }
 
+    /**
+     * @param Stage $stage
+     * @return Prestataire
+     */
+
     public function removeStage(Stage $stage): self
     {
-        if ($this->stage->contains($stage)) {
-            $this->stage->removeElement($stage);
-            // set the owning side to null (unless already changed)
+        if ($this->stages->contains($stage)) {
+            $this->stages->removeElement($stage);
             if ($stage->getPrestataire() === $this) {
                 $stage->setPrestataire(null);
             }
@@ -196,14 +208,14 @@ class Prestataire extends User
      */
     public function getService(): Collection
     {
-        return $this->service;
+        return $this->services;
     }
-
+/*
     public function addService(Service $service): self
     {
-        if (!$this->service->contains($service)) {
-            $this->service[] = $service;
-            $service->setPrestataire($this);
+        if (!$this->services->contains($service)) {
+            $this->services[] = $service;
+            $service->addPrestataire($this);
         }
 
         return $this;
@@ -211,18 +223,20 @@ class Prestataire extends User
 
     public function removeService(Service $service): self
     {
-        if ($this->service->contains($service)) {
-            $this->service->removeElement($service);
+        if ($this->services->contains($service)) {
+            $this->services->removeElement($service);
             // set the owning side to null (unless already changed)
-            if ($service->getPrestataire() === $this) {
-                $service->setPrestataire(null);
+            if ($services->getPrestataire() === $this) {
+                $services->setPrestataire(null);
             }
         }
 
         return $this;
     }
+*/
+
     public function __toString()
     {
-        return $this->user;
+        return $this->name;
     }
 }

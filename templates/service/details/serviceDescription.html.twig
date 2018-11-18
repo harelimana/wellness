@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% block container %}
+        <div class="container">
+            <div class="card-row-image" style="background-image: url('{{asset('assets/img/tmp/product-1.jpg')}}')">
+                {% if services[0].valide == 1 %} {# Only valid services are given #}
+                    <div class="card-row-price">
+                        choosen service <i class="fa fa-star"></i>
+                    </div>
+                {% endif %}
+            </div><!-- /.card-row-image -->
+        </div>
+    {% endblock %}
+{% endblock %}

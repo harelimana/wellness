@@ -61,4 +61,16 @@ class CodePostalRepository extends ServiceEntityRepository
         // returns an array of Product objects
         return $id = $query->execute();
     }
+    public function findAllCp()
+    {
+
+        $em = $this->getEntityManager();
+      //  $num = rand(1, 10);
+        $query = $em->createQuery(
+
+        );
+
+        // returns an array of Product objects
+        return $cp = $query->execute();
+    }
 }

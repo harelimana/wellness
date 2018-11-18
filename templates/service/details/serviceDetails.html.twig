@@ -1,0 +1,62 @@
+<div class="cards-row">
+    <div class="document-title">
+        <h1>Details du Service {{ service }}</h1>
+    </div>
+    <div class="card-row">
+        <div class="card-row-inner">
+            {% if service is not empty %}
+                <div class="card-row-image" style="background-image: url('{{ service.prestataire.image }}');">
+                    {% if services.enAvant == 1 %} {# = enAvant => Affiche étiquette EnAvant#}
+                        <div class="card-row-price">
+                            Services du mois <i class="fa fa-star"></i>
+                        </div>
+                    {% endif %}
+                </div><!-- /.card-row-image -->
+            {% else %}
+                <div class="card-row-image" style="background-image: url('{{asset('assets/img/tmp/product-1.jpg')}}')">
+                    {% if service.enAvant == 1 %} {# = enAvant => Affiche étiquette EnAvant#}
+                        <div class="card-row-price">
+                            Services du mois <i class="fa fa-star"></i>
+                        </div>
+                    {% endif %}
+                </div><!-- /.card-row-image -->
+            {% endif %}
+            <div class="card-row-body">
+                <h2 class="card-row-title">{{ service.Name }}</h2>
+                <div class="card-row-content"><p>{{ service.description }}</p></div><!-- /.card-row-content -->
+            </div><!-- /.card-row-body -->
+        </div><!-- /.card-row-inner -->
+    </div><!-- /.card-row -->
+    <div class="card-row">
+        <table id="categories" class="table table-striped">
+            <tr>
+                <th>Prestataire</th>
+                <th>Commune</th>
+                <th>Email</th>
+                <th>Site Web</th>
+            </tr>
+            {% if service.prestataire is empty %}
+                <tr>
+                    <td class="pasde">AUCUNS PRESTATAIRES ASSOCIES A CETTE CATEGORIES</td>
+                </tr>
+            {% else %}
+                {% for prestataire in service.prestataire %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('prestataireDetails', {'slug':prestataire.slug}) }}">
+                                {{ prestataire.nom }}
+                            </a>
+                        </td>
+                        <td>{{ prestataire.commune }}</td>
+                        <td>{{ prestataire.email }}</td>
+                        <td>
+                            <a href="{{ prestataire.website }}">
+                                {{ prestataire.website}}
+                        </td>
+
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+</div>

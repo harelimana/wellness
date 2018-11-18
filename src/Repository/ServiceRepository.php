@@ -54,4 +54,23 @@ class ServiceRepository extends ServiceEntityRepository
     }
     */
 
-}
+    /* helps to get a service according its provided slug identifier*/
+
+        /**
+         * @param $slug
+         * @return Service|null
+         */
+
+        public function serviceIdentifier($slug): ?Service{
+
+
+            return $this->createQueryBuilder('s')
+                ->where('s.slug = :slug')
+                ->setParameter('slug', $slug)
+                ->andWhere('s.valide = true')
+                ->getQuery()
+                ->getResult();
+        }
+
+
+    }
