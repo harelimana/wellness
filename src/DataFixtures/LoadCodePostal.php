@@ -18,7 +18,7 @@ class LoadCodePostal extends Fixture
             $cp->setCodePostal($data->numberBetween(1000,9000));
 
             $manager->persist($cp);
-            $this->setReference('cp-'. $i , $cp);
+            $this->setReference('cp'. $i , $cp);
         }
 
         $manager->flush();

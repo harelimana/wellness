@@ -17,7 +17,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Factory;
 use App\Entity\CodePostal;
 
-class LoadPrestataire extends Fixture
+class LoadPrestataire extends Fixture implements DependentFixtureInterface
 {
 
     public function load(ObjectManager $manager)
@@ -29,6 +29,7 @@ class LoadPrestataire extends Fixture
         for ($i = 1; $i <= 5; $i++) {
 
             $prestataire = new Prestataire();
+            $service = new Service();
             $image = new Image();
             $logo = new Prestataire();
             $stage = new Stage();
@@ -46,9 +47,12 @@ class LoadPrestataire extends Fixture
             $prestataire->setInscriptionDate($data->dateTime);
             $prestataire->setInscription($data->boolean);
             $prestataire->setPassword($data->password);
-            $prestataire->setCodePostal($this->getReference('cp-' . rand(1, 10)));
-            $prestataire->setLocalite($this->getReference('localite-' . rand(1, 10)));
-            $prestataire->setCommune($this->getReference('commune-' . rand(1, 10)));
+            $prestataire->setCodePostal($this->getReference('cp' . rand(1, 5)));
+            $prestataire->setLocalite($this->getReference('localite' . rand(1, 5)));
+            $prestataire->setCommune($this->getReference('commune' . rand(1, 5)));
+            $prestataire->setServices($this->getReference('service' . rand(1,4)));
+            $prestataire->setStages($this->getReference('stage' . rand(1,4)));
+
             $prestataire->setName($data->name);
             $prestataire->setTelnumber($data->phoneNumber);
             $prestataire->setTvanumber($data->numberBetween(20,21));
@@ -59,6 +63,7 @@ class LoadPrestataire extends Fixture
 
             $stage->setDescription($data->text);
 
+
             $manager->persist($prestataire);
 
             $this->addReference('prestataire' . $i, $prestataire);
@@ -68,9 +73,9 @@ class LoadPrestataire extends Fixture
 
         $manager->flush();
     }
-/*
+
     public function getDependencies()
     {
         return [LoadService::class];
-    } */
+    }
 }

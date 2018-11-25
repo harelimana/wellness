@@ -55,19 +55,19 @@ class Prestataire extends User
     private $logo;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="prestataire")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Stage", inversedBy="prestataire")
      */
     private $stages;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Service", inversedBy="prestataire")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Service", inversedBy="prestataire")
      */
     private $services;
 
     public function __construct()
     {
-      //  $this->services = new ArrayCollection();
-        $this->stages = new ArrayCollection();
+      //  $this->service = new ArrayCollection();
+    //    $this->stage = new ArrayCollection();
 
     }
 
@@ -165,75 +165,37 @@ class Prestataire extends User
     }
 
     /**
+     * @param mixed $stage
+     */
+    public function setStages($stages): void
+    {
+        $this->stages = $stages;
+    }
+
+    /**
      * @return Collection|Stage[]
      */
-    public function getStage(): Collection
+    public function getStages(): Collection
     {
         return $this->stages;
     }
 
     /**
-     * @param Stage $stage
-     * @return Prestataire
-     */
-    public function addStage(Stage $stage): self
-    {
-        if (!$this->stages->contains($stage)) {
-            $this->stages[] = $stage;
-            $stage->setPrestataire($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param Stage $stage
-     * @return Prestataire
-     */
-
-    public function removeStage(Stage $stage): self
-    {
-        if ($this->stages->contains($stage)) {
-            $this->stages->removeElement($stage);
-            if ($stage->getPrestataire() === $this) {
-                $stage->setPrestataire(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Service[]
      */
-    public function getService(): Collection
+    public function getServices(): Collection
     {
         return $this->services;
     }
-/*
-    public function addService(Service $service): self
-    {
-        if (!$this->services->contains($service)) {
-            $this->services[] = $service;
-            $service->addPrestataire($this);
-        }
 
-        return $this;
+    /**
+     * @param mixed $service
+     */
+    public function setServices($services): void
+    {
+        $this->services = $services;
     }
 
-    public function removeService(Service $service): self
-    {
-        if ($this->services->contains($service)) {
-            $this->services->removeElement($service);
-            // set the owning side to null (unless already changed)
-            if ($services->getPrestataire() === $this) {
-                $services->setPrestataire(null);
-            }
-        }
-
-        return $this;
-    }
-*/
 
     public function __toString()
     {

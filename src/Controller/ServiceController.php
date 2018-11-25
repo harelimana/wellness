@@ -39,17 +39,17 @@ class ServiceController extends AbstractController
      * display a given service details according its provided slug
      * @Route("/service/{id}", name="sluggedServiceDetails")
      */
-    public function detailsService($id)
+    public function detailsService(Service $service)
     {
-        $services = $this->getDoctrine()->getRepository(Service::class)
+      /*  $services = $this->getDoctrine()->getRepository(Service::class)
                                         ->findBy($id);
 
         if (isset($services) == false) {
             return $this->redirectToRoute('service unfound');
 
-        } else {
-            return $this->render('/service/details/serviceDescription.html.twig', ['service' => $services]);
-        }
+        } else { */
+            return $this->render('/service/details/serviceDescription.html.twig', ['service' => $service]);
+      //  }
     }
 
 }

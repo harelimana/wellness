@@ -56,17 +56,13 @@ class Stage
      */
     private $tarif;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Prestataire", inversedBy="stage")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $prestataire;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->debutStage = new \DateTime();
         $this->finStage = new \DateTime();
-        $this->affichageDebut= new \DateTime();
-        $this->affichageFin= new \DateTime();
+        $this->affichageDebut = new \DateTime();
+        $this->affichageFin = new \DateTime();
     }
 
     public function getId(): ?int
@@ -170,20 +166,9 @@ class Stage
         return $this;
     }
 
-    public function __toString() {
-        return $this->name;
-    }
-
-    public function getPrestataire(): ?Prestataire
+       public function __toString()
     {
-        return $this->prestataire;
+        return $this->description;
     }
 
-    public function setPrestataire(?Prestataire $prestataire): self
-    {
-        $this->prestataire = $prestataire;
-
-        return $this;
-    }
-
-    }
+}

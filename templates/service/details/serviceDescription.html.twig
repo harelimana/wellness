@@ -1,14 +1,31 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     {% block container %}
-        <div class="container">
-            <div class="card-row-image" style="background-image: url('{{asset('assets/img/tmp/product-1.jpg')}}')">
-                {% if services[0].valide == 1 %} {# Only valid services are given #}
-                    <div class="card-row-price">
-                        choosen service <i class="fa fa-star"></i>
-                    </div>
+
+        <div class="card-row">
+            <div class="card-row-inner">
+                {% if service is not empty %}
+                    <div class="card-row-image" style="background-image: url('{{asset('assets/img/tmp/product-1.jpg')}}');">
+                        {% if service.enAvant == 1 %} {# = enAvant => Affiche étiquette EnAvant#}
+                            <div class="card-row-price">
+                                Services du mois <i class="fa fa-star"></i>
+                            </div>
+                        {% endif %}
+                    </div><!-- /.card-row-image -->
+                {% else %}
+                    <div class="card-row-image" style="background-image: url('{{asset('assets/img/tmp/product-1.jpg')}}')">
+                        {% if service.enAvant == 1 %} {# = enAvant => Affiche étiquette EnAvant#}
+                            <div class="card-row-price">
+                                Services du mois <i class="fa fa-star"></i>
+                            </div>
+                        {% endif %}
+                    </div><!-- /.card-row-image -->
                 {% endif %}
-            </div><!-- /.card-row-image -->
-        </div>
+                <div class="card-row-body">
+                    <h2 class="card-row-title">{{ service.Name }}</h2>
+                    <div class="card-row-content"><p>{{ service.description }}</p></div><!-- /.card-row-content -->
+                </div><!-- /.card-row-body -->
+            </div><!-- /.card-row-inner -->
+        </div><!-- /.card-row -->
     {% endblock %}
 {% endblock %}

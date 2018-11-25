@@ -12,14 +12,14 @@ class LoadImage extends Fixture
     public function load(ObjectManager $manager)
     {
 
-        $data = Factory::create();
+        $data = Factory::create('fr_BE');
 
         for($i=0; $i<10; $i++) {
             $image = new Image();
             $image->setImage($data->imageUrl());
             $image->setOrdre(rand(1, 5));
             $manager->persist($image);
-            $this->addReference('image-' . $i, $image);
+            $this->addReference('image' . $i, $image);
         }
 
         for($i=0; $i<10; $i++) {
@@ -27,7 +27,7 @@ class LoadImage extends Fixture
             $logo->setImage($data->imageUrl());
             $logo->setOrdre(rand(1, 5));
             $manager->persist($logo);
-            $this->addReference('logo-' . $i, $logo);
+            $this->addReference('logo' . $i, $logo);
         }
 
         $manager->flush();
