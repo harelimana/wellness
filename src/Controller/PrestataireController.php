@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Prestataire;
 use App\Entity\User;
 use App\Form\PrestataireType;
+use App\Repository\PrestataireRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -77,5 +78,44 @@ class PrestataireController extends AbstractController
             return $this->render('prestataire/prestataireDetailsSuccess.html.twig',
                 ['prestataire' => $prestataire]);
         }
+    }
+
+    /**
+     * Route("/prestataire/{$id}", name="servicesPrestataire")
+     * @param $id
+     * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function getServicesByPrestataire($id){
+        $prestataire = $this->getDoctrine()
+            ->getRepository(Prestataire::class)
+            ->find($id);
+
+        if (isset($prestataire) == false) {
+            return $this->redirectToRoute('detailsPrestataireErrors');
+
+        } else {
+            $services = $prestataire->getServices();
+            return $this->render('prestataire/servicesByPresta.html.twig',
+                ['services' => $services]);
+        }
+    }
+
+    /**
+     * @Route("/servicesprestataire/{id}", name="servicesPrestataire")
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     * this method uses the PrestataireRepository
+     */
+
+    public function show($id)
+    {
+        $prestataire = $this->getDoctrine()
+            ->getRepository(Prestataire::class)
+            ->findOneByIdJoinedToServices($id);
+
+        $services = $prestataire->getServices();
+        return $this->render('prestataire/servicesByPresta.html.twig',
+            ['services' => $services]);
+
     }
 }

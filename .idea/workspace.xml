@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24d4df53-3006-4faa-a8e8-8934e83e031d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4a1ca760-211a-41d8-a14e-c0790bb97811.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4a1ca760-211a-41d8-a14e-c0790bb97811.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PrestataireController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PrestataireController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ServiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ServiceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/LoadCodePostal.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/LoadCodePostal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/LoadCommune.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/LoadCommune.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/LoadImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/LoadImage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/LoadLocalite.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/LoadLocalite.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/LoadPrestataire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/LoadPrestataire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/LoadService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/LoadService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Prestataire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Prestataire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Stage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Stage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181118141846.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/service/details/serviceDescription.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/service/details/serviceDescription.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PrestataireRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PrestataireRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/inc/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inc/header.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +63,20 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="willness: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="prestataire: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="willness: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="service: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="willness: schema" type="c314c289:MysqlImplModel$Schema" />
         <item name="stage: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
       <path>
@@ -80,11 +86,6 @@
         <item name="willness: schema" type="c314c289:MysqlImplModel$Schema" />
         <item name="user: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
     </expand>
     <select />
   </component>
@@ -92,7 +93,7 @@
     <session id="371928273">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="32" />
+          <entry key="project.closed" value="34" />
           <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.135" value="1" />
           <entry key="project.open.time.14" value="1" />
@@ -113,13 +114,13 @@
           <entry key="project.open.time.48" value="3" />
           <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.5" value="2" />
-          <entry key="project.open.time.53" value="1" />
+          <entry key="project.open.time.53" value="2" />
           <entry key="project.open.time.55" value="1" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="40" />
+          <entry key="project.opened" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -137,15 +138,15 @@
           <entry key="jpg" value="16" />
           <entry key="localite" value="10" />
           <entry key="migration_versions" value="11" />
-          <entry key="php" value="221" />
+          <entry key="php" value="226" />
           <entry key="png" value="1" />
-          <entry key="prestataire" value="10" />
+          <entry key="prestataire" value="11" />
           <entry key="prestataire_service" value="3" />
-          <entry key="service" value="11" />
+          <entry key="service" value="12" />
           <entry key="service_prestataire" value="2" />
           <entry key="sql" value="3" />
           <entry key="stage" value="5" />
-          <entry key="twig" value="97" />
+          <entry key="twig" value="105" />
           <entry key="user" value="4" />
         </counts>
       </usages-collector>
@@ -153,29 +154,29 @@
         <counts>
           <entry key=".env file" value="3" />
           <entry key="CSS" value="1" />
-          <entry key="Database Element" value="102" />
+          <entry key="Database Element" value="104" />
           <entry key="Image" value="17" />
-          <entry key="PHP" value="221" />
+          <entry key="PHP" value="226" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Scratch" value="3" />
-          <entry key="Twig" value="97" />
+          <entry key="Twig" value="105" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="11" />
           <entry key="env" value="16" />
-          <entry key="php" value="8232" />
-          <entry key="twig" value="2450" />
+          <entry key="php" value="8878" />
+          <entry key="twig" value="2902" />
           <entry key="txt" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="16" />
-          <entry key="PHP" value="8232" />
+          <entry key="PHP" value="8878" />
           <entry key="PLAIN_TEXT" value="19" />
-          <entry key="Twig" value="2450" />
+          <entry key="Twig" value="2902" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.test" />
@@ -200,10 +201,10 @@
           <entry key="project.open.time.4" value="2" />
           <entry key="project.open.time.41" value="1" />
           <entry key="project.open.time.57" value="1" />
-          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -217,33 +218,33 @@
           <entry key="internaute_bloc" value="1" />
           <entry key="localite" value="4" />
           <entry key="migration_versions" value="1" />
-          <entry key="php" value="91" />
+          <entry key="php" value="94" />
           <entry key="prestataire" value="1" />
           <entry key="prestataire_service" value="1" />
           <entry key="service" value="1" />
           <entry key="service_prestataire" value="2" />
           <entry key="stage" value="1" />
-          <entry key="twig" value="8" />
+          <entry key="twig" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Database Element" value="23" />
-          <entry key="PHP" value="92" />
+          <entry key="PHP" value="95" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Twig" value="8" />
+          <entry key="Twig" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="3066" />
-          <entry key="twig" value="284" />
+          <entry key="php" value="3647" />
+          <entry key="twig" value="315" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="3066" />
-          <entry key="Twig" value="284" />
+          <entry key="PHP" value="3647" />
+          <entry key="Twig" value="315" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.test" />
@@ -259,67 +260,71 @@
       <usages-collector id="statistics.vcs.git.usages" />
     </session>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="willness" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/localite">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+        <entry file="file://$PROJECT_DIR$/templates/prestataire/servicesByPresta.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Prestataire.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ServiceController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="750">
+              <caret line="53" selection-start-line="53" selection-end-line="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="91">
+              <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+              <folding>
+                <element signature="e#34#61#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadLocalite.php">
+        <entry file="file://$PROJECT_DIR$/src/Form/PrestataireType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+            <state relative-caret-position="101">
+              <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/image">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
+        <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1740" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/internaute_bloc">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <entry file="file://$PROJECT_DIR$/templates/users/authenticate/signIn.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
             <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/stage">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/code_postal">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/prestataire">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+              <caret column="24" selection-start-column="24" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -334,22 +339,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadStage.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="41" lean-forward="true" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
-              <folding>
-                <element signature="e#36#57#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/templates/service/service.html.twig">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/commune">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+        <entry file="file://$PROJECT_DIR$/templates/service/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -362,15 +360,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Entity/Image.php" />
-        <option value="$PROJECT_DIR$/templates/layout.html.twig" />
-        <option value="$PROJECT_DIR$/templates/home/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/home/layout.html.twig" />
         <option value="$PROJECT_DIR$/templates/home/listing-service.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/HomeController.php" />
         <option value="$PROJECT_DIR$/templates/prestataire/prestataire_details.html.twig" />
         <option value="$PROJECT_DIR$/templates/prestataire/prestataire_by_localite.html.twig" />
-        <option value="$PROJECT_DIR$/src/Repository/PrestataireRepository.php" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/src/Migrations/Version20181022182832.php" />
         <option value="$PROJECT_DIR$/templates/prestataire/index.html.twig" />
@@ -389,17 +383,14 @@
         <option value="$PROJECT_DIR$/templates/inc/errors/prestataire/prestaireDetailsErrors.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/RenderExceptionsController.php" />
         <option value="$PROJECT_DIR$/templates/prestataire/prestataire.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/PrestataireController.php" />
         <option value="$PROJECT_DIR$/templates/prestataire/list/prestaList.html.twig" />
         <option value="$PROJECT_DIR$/templates/inc/slider.html.twig" />
         <option value="$PROJECT_DIR$/templates/service/service.html.twig" />
-        <option value="$PROJECT_DIR$/templates/inc/header.html.twig" />
         <option value="$PROJECT_DIR$/templates/inc/footer.html.twig" />
         <option value="$PROJECT_DIR$/templates/service/details_services.html.twig" />
         <option value="$PROJECT_DIR$/templates/service/list/serviceList.html.twig" />
         <option value="$PROJECT_DIR$/templates/service/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Repository/ServiceRepository.php" />
-        <option value="$PROJECT_DIR$/src/Controller/ServiceController.php" />
         <option value="$PROJECT_DIR$/templates/service/details/serviceDetails.html.twig" />
         <option value="$PROJECT_DIR$/templates/service/details/serviceDescription.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Stage.php" />
@@ -413,6 +404,13 @@
         <option value="$PROJECT_DIR$/src/Entity/Prestataire.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/LoadPrestataire.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/LoadStage.php" />
+        <option value="$PROJECT_DIR$/templates/inc/header.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/ServiceController.php" />
+        <option value="$PROJECT_DIR$/templates/prestataire/servicesByPresta.html.twig" />
+        <option value="$PROJECT_DIR$/src/Repository/PrestataireRepository.php" />
+        <option value="$PROJECT_DIR$/src/Controller/PrestataireController.php" />
+        <option value="$PROJECT_DIR$/templates/users/authenticate/signIn.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/UsersController.php" />
       </list>
     </option>
   </component>
@@ -526,24 +524,36 @@
             <path>
               <item name="willness" type="b2602c69:ProjectViewProjectNode" />
               <item name="willness" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="willness" type="b2602c69:ProjectViewProjectNode" />
-              <item name="willness" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="willness" type="b2602c69:ProjectViewProjectNode" />
               <item name="willness" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="DataFixtures" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="willness" type="b2602c69:ProjectViewProjectNode" />
               <item name="willness" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="willness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="willness" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Form" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="willness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="willness" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="willness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="willness" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -647,17 +657,41 @@
       <workItem from="1542803726599" duration="3410000" />
       <workItem from="1542909312659" duration="1211000" />
       <workItem from="1543170761241" duration="6495000" />
-      <workItem from="1543177339511" duration="918000" />
+      <workItem from="1543177339511" duration="8001000" />
+      <workItem from="1543220053270" duration="9131000" />
+      <workItem from="1543307137807" duration="5583000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="337069000" />
+    <option name="totallyTimeSpent" value="358866000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1535" height="904" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8427835" visible="true" weight="0.27199462" />
+      <window_info id="Structure" order="1" sideWeight="0.15721649" side_tool="true" visible="true" weight="0.27199462" />
+      <window_info id="Favorites" order="2" side_tool="true" weight="0.32975152" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32860824" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" weight="0.32860824" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32860824" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.5144392" weight="0.18041237" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.48556077" side_tool="true" weight="0.18041237" />
+      <window_info anchor="bottom" id="Database Console" order="12" sideWeight="0.49966422" weight="0.32860824" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.19073203" />
+    </layout>
+    <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8474843" visible="true" weight="0.26393554" />
       <window_info id="Structure" order="1" sideWeight="0.15251572" side_tool="true" visible="true" weight="0.26393554" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -678,28 +712,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" visible="true" weight="0.19073203" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22229685" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32904884" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32904884" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Database Console" order="12" weight="0.32904884" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.17528543" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -720,77 +732,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20181117125533.php" />
-    <entry file="file://$PROJECT_DIR$/src/Entity/CodePostal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-147" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Commune.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-377" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Localite.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-183" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1552">
-          <caret line="241" column="2" selection-start-line="241" selection-start-column="2" selection-end-line="241" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataFixtures/LoadUser.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20181118120028.php" />
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20181118122254.php" />
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20181118132341.php" />
-    <entry file="file://$PROJECT_DIR$/templates/inc/header.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/ServiceRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="68" column="45" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/inc/slider.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="3" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/service/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ServiceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="50" column="104" selection-start-line="50" selection-start-column="104" selection-end-line="50" selection-end-column="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/service/details/serviceDetails.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="80" selection-start-line="8" selection-start-column="80" selection-end-line="8" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/service/details/serviceDescription.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -862,13 +803,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20181120201421.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20181120201421.php" />
     <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/prestataire_service" />
     <entry file="file://$PROJECT_DIR$/src/Migrations/Version20181125192826.php" />
     <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/internaute">
@@ -882,13 +817,6 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Prestataire.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="12" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -927,9 +855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="41" lean-forward="true" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
-          <folding>
-            <element signature="e#36#57#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -941,27 +866,6 @@
       </provider>
     </entry>
     <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/internaute_bloc">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/prestataire">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/service">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/stage">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -993,6 +897,126 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/prestataire/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5070" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/prestataire/prestataire.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/service/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/stage">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/prestataire/list/prestaList.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/PrestataireRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/inc/header.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2130">
+          <caret line="142" column="56" selection-start-line="142" selection-start-column="56" selection-end-line="142" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PrestataireController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="52" column="53" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/prestataire">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/prestataire/servicesByPresta.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Prestataire.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/service">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/service/service.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/service/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/authenticate/signIn.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1740" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ServiceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+          <folding>
+            <element signature="e#34#61#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/PrestataireType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
         </state>
       </provider>
     </entry>

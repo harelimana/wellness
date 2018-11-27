@@ -19,22 +19,25 @@ class PrestataireRepository extends ServiceEntityRepository
         parent::__construct($registry, Prestataire::class);
     }
 
-//    /**
-//     * @return Prestataire[] Returns an array of Prestataire objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param $prestataireId
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+
+    public function findOneByIdJoinedToServices($prestataireId)
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+            // p.services refers to the services" property on prestataire
+            ->innerJoin('p.services_id', 'c')
+            // selects all the services data to avoid the query
+            ->addSelect('c')
+            ->andWhere('p.id = :id')
+            ->setParameter('id', $prestataireId)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getOneOrNullResult();
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Prestataire
