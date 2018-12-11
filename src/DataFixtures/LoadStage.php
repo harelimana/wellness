@@ -13,7 +13,7 @@ class LoadStage extends Fixture
     {
         $data = Factory::create('fr_BE');
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $stage = new Stage();
             $stage->setName($data->name);
             $stage->setDescription($data->text);

@@ -26,7 +26,7 @@ class LoadPrestataire extends Fixture implements DependentFixtureInterface
         $data = Factory::create('fr_BE');
         $tva = '0.21';
 
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
 
             $prestataire = new Prestataire();
             $service = new Service();
@@ -47,17 +47,17 @@ class LoadPrestataire extends Fixture implements DependentFixtureInterface
             $prestataire->setInscriptionDate($data->dateTime);
             $prestataire->setInscription($data->boolean);
             $prestataire->setPassword($data->password);
-            $prestataire->setCodePostal($this->getReference('cp' . rand(1, 5)));
-            $prestataire->setLocalite($this->getReference('localite' . rand(1, 5)));
-            $prestataire->setCommune($this->getReference('commune' . rand(1, 5)));
-            $prestataire->setServices($this->getReference('service' . rand(1,4)));
-            $prestataire->setStages($this->getReference('stage' . rand(1,4)));
+            $prestataire->setCodePostal($this->getReference('cp' . rand(1, 8)));
+            $prestataire->setLocalite($this->getReference('localite' . rand(1, 8)));
+            $prestataire->setCommune($this->getReference('commune' . rand(1, 8)));
+            $prestataire->setServices($this->getReference('service' . rand(1,8)));
+            $prestataire->setStages($this->getReference('stage' . rand(1,8)));
 
             $prestataire->setName($data->name);
             $prestataire->setTelnumber($data->phoneNumber);
             $prestataire->setTvanumber($data->numberBetween(20,21));
             $prestataire->setWebsite($data->url);
-            $prestataire->setSlug($data->slug);
+            $prestataire->setSlug($data->numberBetween(1,100));
             $image->setImage('http://placehold.it/350x400');
             $prestataire->setLogo($image);
 

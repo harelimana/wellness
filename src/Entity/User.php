@@ -4,6 +4,9 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bundle\MakerBundle\Doctrine;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 
 /**
@@ -11,9 +14,13 @@ use Symfony\Bundle\MakerBundle\Doctrine;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="userType", type="string")
  * @ORM\DiscriminatorMap({"user" = "User", "internaute" = "Internaute", "prestataire" = "Prestataire"})
+ * @UniqueEntity(
+ *     fields = {"email"},
+ *     message = "This email is already in use !"
+ * )
  *
  */
-Abstract class User
+Abstract class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -22,40 +29,83 @@ Abstract class User
      */
     private $id;
 
+    protected $username;
+
     /**
      * @ORM\Column(type="string", length=16)
      */
-    private $addressNumber;
+    protected $addressNumber;
 
     /**
      * @ORM\Column(type="string", length=32)
      */
-    private $addressRue;
+    protected $addressRue;
 
     /**
      * @ORM\Column(type="string", length=32)
      */
-    private $email;
+    protected $email;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $banni;
+    protected $banni;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $inscription;
+    protected $inscription;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $inscriptionDate;
+    protected $inscriptionDate;
 
     /**
      * @ORM\Column(type="string", length=32)
+     * @Assert\Length(min = "8", minMessage="votre password doit avoir min 8 chars")
+     * @Assert\EqualTo(propertyPath = "confirmPassword")
+     *
      */
-    private $password;
+    protected $password;
+
+    /**
+     * @return mixed
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username): void
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @var
+     * @Assert\EqualTo(propertyPath= "password")
+     */
+    protected $confirmPassword;
+
+    /**
+     * @return mixed
+     */
+    public function getConfirmPassword()
+    {
+        return $this->confirmPassword;
+    }
+
+    /**
+     * @param mixed $confirmPassword
+     */
+    public function setConfirmPassword($confirmPassword): void
+    {
+        $this->confirmPassword = $confirmPassword;
+    }
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -64,13 +114,13 @@ Abstract class User
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\CodePostal", inversedBy="user", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $codepostal;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Localite", inversedBy="user", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $localite;
 
@@ -221,6 +271,17 @@ Abstract class User
     public function setEmail($email): void
     {
         $this->email = $email;
+    }
+
+    public function eraseCredentials(){
+
+    }
+    public function getSalt(){
+
+    }
+    public function getRoles(){
+        return ['ROLE_USER'];
+
     }
 /*
     public function getPrestataire(): ?Prestataire

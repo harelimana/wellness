@@ -17,7 +17,7 @@
                             <div class="detail-banner-left">
                                 <div class="detail-banner-info">
                                     {% for s in prestataire.services %}
-                                        <a href="{{ path('detail_service',{'slug':s.slug}) }}"><div class="detail-label">{{ s.Name }}</div></a>
+                                        <a href="{{ path('service_details',{'id':s.id}) }}"><div class="detail-label">{{ s.Name }}</div></a>
                                     {% endfor %}
                                 </div><!-- /.detail-banner-info -->
 

@@ -17,7 +17,7 @@ class LoadService extends Fixture
 
         $data = Factory::create('fr_BE');
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $service = new Service();
         //    $prestataire = new Prestataire();
             $service->setName($data->name);

@@ -31,13 +31,13 @@ class PrestataireController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $prestataire = $em->getRepository(Prestataire::class);
         $listPrestataire = $prestataire->findAll();
-        return $this->render('prestataire/prestataire.html.twig', [
+        return $this->render('prestataire/list/prestaList.html.twig', [
             'prestataire' => $listPrestataire,
         ]);
     }
 
     /**
-     * @Route("/addprestataire", name="createPrestatire")
+     * @Route("/addprestataire", name="createPrestataire")
      * @param Prestataire $prestataire
      * @param Request $request
      * @param ObjectManager $manager

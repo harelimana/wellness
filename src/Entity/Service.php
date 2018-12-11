@@ -44,15 +44,16 @@ class Service
     private $slug;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Prestataire", inversedBy="service", cascade={"persist"})
-     *
+     * @var ArrayCollection
+     *  @ORM\OneToMany(targetEntity="Prestataire", mappedBy="service", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $prestataires;
+    private $prestataire;
 
 
     public function __construct()
     {
-        $this->prestataires = new ArrayCollection();
+        $this->prestataire = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -127,17 +128,17 @@ class Service
     /**
      * @return ArrayCollection
      */
-    public function getPrestataires(): ArrayCollection
+    public function getPrestataire(): ArrayCollection
     {
-        return $this->prestataires;
+        return $this->prestataire;
     }
 
     /**
      * @param ArrayCollection $prestataires
      */
-    public function setPrestataires(ArrayCollection $prestataires): void
+    public function setPrestataire(ArrayCollection $prestataire): void
     {
-        $this->prestataires = $prestataires;
+        $this->prestataire = $prestataire;
     }
 
 

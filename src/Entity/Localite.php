@@ -21,6 +21,29 @@ class Localite
      */
     private $localite;
 
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="localite")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $user;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user): void
+    {
+        $this->user = $user;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -40,6 +63,6 @@ class Localite
 
     public function __toString()
     {
-       $this->getLocalite();
+      return $this->getLocalite();
     }
 }

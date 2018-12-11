@@ -4,12 +4,14 @@
             <div class="main">
                 <div class="main-inner">
                     <div class="container">
-                        <div class="row">
-                            <div class="document-title">
-                                <h1>Some of the suggested Services </h1>
-                                {# Affichage total objet trouvé #}
-                                <h2 class="text-center"> Services Found</h2>
+                        <div class="row rating-title">
+                            <div class="background-primary">
+                                <h1 class="text-center">Some of the suggested Services </h1>
+                                <h3 class="text-center"> Services Found</h3>
                             </div>
+                        </div>
+                        {# Affichage services trouves #}
+                        <div class="row">
                             {% if service is not empty %}
                                 {% for s in service %}
                                     <div class="col-sm-6">
@@ -45,7 +47,7 @@
                                     <h2>{{ error.msg }}</h2>
                                 </div>
                             {% endif %}
-
+                        </div>
                         </div><!-- /.row -->
                         <!-- /.pagination -->
                         <div class="pager">

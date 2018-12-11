@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PrestataireRepository")
@@ -165,7 +166,7 @@ class Prestataire extends User
     }
 
     /**
-     * @param mixed $stage
+     * @param mixed $stages
      */
     public function setStages($stages): void
     {
@@ -189,13 +190,12 @@ class Prestataire extends User
     }
 
     /**
-     * @param mixed $service
+     * @param mixed $services
      */
     public function setServices($services): void
     {
         $this->services = $services;
     }
-
 
     public function __toString()
     {

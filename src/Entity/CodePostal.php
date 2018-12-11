@@ -23,13 +23,35 @@ class CodePostal
      */
     private $CodePostal;
 
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="codepostal")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $user;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user): void
+    {
+        $this->user = $user;
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getCodePostal(): ?int
+    public function getCodePostal(): ?string
     {
         return $this->CodePostal;
     }
@@ -43,6 +65,6 @@ class CodePostal
 
     public function __toString()
     {
-        $this->getCodePostal();
+        return $this->getCodePostal();
     }
 }

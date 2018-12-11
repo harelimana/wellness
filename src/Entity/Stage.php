@@ -56,6 +56,29 @@ class Stage
      */
     private $tarif;
 
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="App\Entity\Prestataire", mappedBy="stage")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $prestataire;
+
+    /**
+     * @return mixed
+     */
+    public function getPrestataire()
+    {
+        return $this->prestataire;
+    }
+
+    /**
+     * @param mixed $prestataire
+     */
+    public function setPrestataire($prestataire): void
+    {
+        $this->prestataire = $prestataire;
+    }
+
 
     public function __construct()
     {

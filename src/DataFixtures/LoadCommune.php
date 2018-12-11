@@ -13,7 +13,7 @@ class LoadCommune extends Fixture
     {
 
         $data = Factory::create('fr_BE');
-        for($i=0; $i<=10; $i++){
+        for($i=0; $i<10; $i++){
             $commune = new Commune();
             $commune->setCommune($data->unique()->city);
 

@@ -25,9 +25,20 @@
                             </ul><!-- /.header-nav-social -->
 
                             <ul class="header-nav-secondary nav nav-pills">
-                                <li><a href={{ asset("login.html") }}>Login</a></li>
-                                <li><a href={{ asset("register.html") }}>Register</a></li>
+                                <li><a href={{  path('security_signin') }}>Register</a></li>
+                                {% if not app.user %}
+                                    <li>
+                                        <a href="{{ path('securitylogin') }}">Connexion <i class="fa fa-chevron-down"></i></a>
+
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="{{ path('securitylogout') }}">Deconnexion <i class="fa fa-chevron-down"></i></a>
+
+                                    </li>
+                                {% endif %}
                             </ul>
+
                         </div><!-- /.header-top -->
 
                         <div class="header-bottom">
@@ -147,6 +158,8 @@
                                         <li><a href="contact-3.html">Project Leader</a></li>
                                     </ul>
                                 </li>
+
+
                             </ul>
 
                             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse"

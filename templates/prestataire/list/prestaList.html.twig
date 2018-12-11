@@ -1,5 +1,10 @@
+{% extends '/prestataire/layoutPrestataire.html.twig' %}
+{% block details %}
 <div class="cards-simple-wrapper">
     <div class="row">
+        <div class="background-primary col-md-12">
+            <h3 class="text-center">Just a selected list of Prestataires </h3>
+        </div>
         {% if prestataire is not empty %}
         {% for p in prestataire %}
         <div class="col-sm-6 col-md-4 col-lg-3">
@@ -33,3 +38,4 @@
 
     </div>
 </div>
+{% endblock %}
