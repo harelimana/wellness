@@ -1,6 +1,18 @@
-<p> List de services par prestaire </p>
+{% extends 'base.html.twig' %}
 
-{% for (ser in services) %}{
-    <li>ser</li>
-}
-{% endfor %}
+{% block body %}
+    {% block container %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <h2> List de services par prestaire </h2>
+
+                    {% for ser in services %}{
+                        <li>ser</li>
+                        }
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

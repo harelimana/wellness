@@ -12,7 +12,7 @@ class RenderExceptionsController extends AbstractController
      */
     public function index()
     {
-        return $this->render('render_exceptions/index.html.twig', [
+        return $this->render('render_exceptions/services.html.twig', [
             'controller_name' => 'RenderExceptionsController',
         ]);
     }
@@ -23,6 +23,6 @@ class RenderExceptionsController extends AbstractController
      */
     public function showPrestaDetailsErrors(){
         $errorMessage = ['msg'=>'unfound Prestataire !'];
-        return $this->render('prestataire/index.html.twig', ['error' => $errorMessage]);
+        return $this->render('prestataire/services.html.twig', ['error' => $errorMessage]);
     }
 }

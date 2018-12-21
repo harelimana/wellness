@@ -1,0 +1,63 @@
+{% extends 'layout.html.twig' %}
+{% block details %}
+
+    <form id="form_recherche" class="filter" method="get" action="">
+        <div class="row">
+            <h1>Recherche d'un prestataire</h1>
+            <div class="col-sm-12 col-md-4">
+                <div class="form-group">
+                    <span>Nom du prestataire</span>
+                    <input type="text" placeholder="" class="form-control" name="nom">
+                </div><!-- /.form-group -->
+            </div><!-- /.col-* -->
+
+
+            <div class="col-sm-12 col-md-4">
+
+                <div class="form-group">
+                    <span>Commune</span>
+                    {#<select class="form-control" title="Faites votre choix" name="commune" id="init">
+                        {% for c in communes %}
+                            <option value="{{ c.commune }}">{{ c.commune }}</option>
+                        {% endfor %}
+                    </select>#}
+                    <select class="form-control" name="cat_serv" id="init">
+                        <option value="" style="color: white; background-color : rgb(0,134,117);">Faites votre choix
+                        </option>
+                        {% for c in communes %}
+                            <option value="{{ c.commune }}">{{ c.commune }}</option>
+                        {% endfor %}
+                    </select>
+                </div><!-- /.form-group -->
+
+            </div><!-- /.col-* -->
+
+
+            <div class="col-sm-12 col-md-4">
+                <div class="form-group">
+                    <span>Categories de Services</span>
+                    <select class="form-control" name="cat_serv" id="init">
+                        <option value="" style="color: white; background-color : rgb(0,134,117);">Faites votre choix
+                        </option>
+                        {% for s in services %}
+                            <option value="{{ s.Name }}">{{ s.Name }}</option>
+                        {% endfor %}
+                    </select>
+                </div><!-- /.form-group -->
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="filter-actions">
+                    <button type="button" id="reset" class="btn btn-danger"><i class="fa fa-close"></i> Reset</button>
+                </div><!-- /.filter-actions -->
+            </div><!-- /.col-* -->
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-primary">Recherche</button>
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+    </form>
+{% endblock %}

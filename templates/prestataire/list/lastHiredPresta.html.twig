@@ -2,11 +2,11 @@
 {% block details %}
     <div class="cards-simple-wrapper">
         <div class="background-primary col-md-12">
-            <h3 class="text-center">Just a selected list of Prestataires </h3>
+            <h3 class="text-center">Our last hired Prestataires </h3>
         </div>
         <div class="row">
-            {% if prestataire is not empty %}
-            {% for p in prestataire %}
+            {% if listLastPrestataire is not empty %}
+            {% for p in listLastPrestataire %}
             <div class="col-sm-6 col-md-4 col-lg-3">
                 {% if p.logo is not null %}
                 <div class="card-simple" style="background-image: url('{{ p.logo.Image }}')">

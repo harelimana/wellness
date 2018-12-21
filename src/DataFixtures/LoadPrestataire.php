@@ -50,14 +50,13 @@ class LoadPrestataire extends Fixture implements DependentFixtureInterface
             $prestataire->setCodePostal($this->getReference('cp' . rand(1, 8)));
             $prestataire->setLocalite($this->getReference('localite' . rand(1, 8)));
             $prestataire->setCommune($this->getReference('commune' . rand(1, 8)));
-            $prestataire->setServices($this->getReference('service' . rand(1,8)));
-            $prestataire->setStages($this->getReference('stage' . rand(1,8)));
-
+         //   $prestataire->addService($this->getReference('service' . rand(1,8)));
+            $prestataire->addStage($this->getReference('stage' . rand(1,8)));
             $prestataire->setName($data->name);
             $prestataire->setTelnumber($data->phoneNumber);
             $prestataire->setTvanumber($data->numberBetween(20,21));
             $prestataire->setWebsite($data->url);
-            $prestataire->setSlug($data->numberBetween(1,100));
+            $prestataire->setSlug($data->text);
             $image->setImage('http://placehold.it/350x400');
             $prestataire->setLogo($image);
 

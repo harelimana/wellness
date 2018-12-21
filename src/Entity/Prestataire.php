@@ -56,20 +56,26 @@ class Prestataire extends User
     private $logo;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Stage", inversedBy="prestataire")
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="prestataires")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $stages;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Service", inversedBy="prestataire")
+     * @var ArrayCollection
+     * @ORM\ManyToMany(targetEntity="App\Entity\Service", inversedBy="prestataires")
+     * @ORM\JoinColumn(name="service_id",referencedColumnName="id", nullable=true)
      */
     private $services;
 
+    /**
+     * Prestataire constructor.
+     */
     public function __construct()
     {
-      //  $this->service = new ArrayCollection();
-    //    $this->stage = new ArrayCollection();
-
+        $this->services = new ArrayCollection();
+        $this->stages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -166,14 +172,6 @@ class Prestataire extends User
     }
 
     /**
-     * @param mixed $stages
-     */
-    public function setStages($stages): void
-    {
-        $this->stages = $stages;
-    }
-
-    /**
      * @return Collection|Stage[]
      */
     public function getStages(): Collection
@@ -181,22 +179,58 @@ class Prestataire extends User
         return $this->stages;
     }
 
+
     /**
-     * @return Collection|Service[]
+     * @return ArrayCollection
      */
-    public function getServices(): Collection
+    public function getService(): ArrayCollection
     {
         return $this->services;
     }
 
     /**
-     * @param mixed $services
+     * @param Stage $stage
+     * @return Stage|Stage[]|ArrayCollection
      */
-    public function setServices($services): void
+    public function addStage(Stage $stage)
     {
-        $this->services = $services;
+        if (!$this->stages->contains($stage)) {
+            $this->stages[] = $stage;
+            $stage->setPrestataires($this);
+
+        }
+        return $this->stages[] = $stage;
     }
 
+    /**
+     * @param Stage $stage
+     */
+    public function removeStage(Stage $stage)
+    {
+        $this->stages->removeElement($stage);
+    }
+
+    /**
+     * @param Service $service
+     * @return Service
+     */
+    public function addService(Service $service)
+    {
+        return $this->services[] = $service;
+    }
+
+    /**
+     * @param Service $service
+     */
+    public function removeService(Service $service)
+    {
+        $this->services->removeElement($service);
+    }
+
+
+    /**
+     * @return mixed
+     */
     public function __toString()
     {
         return $this->name;

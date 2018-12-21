@@ -44,16 +44,15 @@ class Service
     private $slug;
 
     /**
-     * @var ArrayCollection
-     *  @ORM\OneToMany(targetEntity="Prestataire", mappedBy="service", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\ManyToMany(targetEntity="Prestataire", mappedBy="services", cascade={"persist"})
+     * @ORM\JoinColumn(name="prestataire_id",referencedColumnName="id",nullable=true)
      */
-    private $prestataire;
+     private $prestataires;
 
 
     public function __construct()
     {
-        $this->prestataire = new ArrayCollection();
+        $this->prestataires = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -130,18 +129,27 @@ class Service
      */
     public function getPrestataire(): ArrayCollection
     {
-        return $this->prestataire;
+        return $this->prestataires;
     }
 
     /**
-     * @param ArrayCollection $prestataires
+     * @param Prestataire $prestataire
+     * @return Prestataire
      */
-    public function setPrestataire(ArrayCollection $prestataire): void
-    {
-        $this->prestataire = $prestataire;
+    public function addPrestataire(Prestataire $prestataire){
+        return $this->prestataires[] = $prestataire;
     }
 
+    /**
+     * @param Prestataire $prestataire
+     */
+    public function removePrestataire(Prestataire $prestataire){
+        $this->prestataires->removeElement($prestataire);
+    }
 
+    /**
+     * @return mixed
+     */
     public function __toString() {
         return $this->Name;
     }

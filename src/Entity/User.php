@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bundle\MakerBundle\Doctrine;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -15,8 +16,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\DiscriminatorColumn(name="userType", type="string")
  * @ORM\DiscriminatorMap({"user" = "User", "internaute" = "Internaute", "prestataire" = "Prestataire"})
  * @UniqueEntity(
- *     fields = {"email"},
- *     message = "This email is already in use !"
+ *     fields = {"email"}, message = "This email is already in use !"
  * )
  *
  */
@@ -283,22 +283,15 @@ Abstract class User implements UserInterface
         return ['ROLE_USER'];
 
     }
-/*
-    public function getPrestataire(): ?Prestataire
+
+    /**
+     * @param EntityManager $em
+     * @return mixed
+     */
+    public function lastHiredPrestataire(EntityManager $em )
     {
-        return $this->prestataire;
+       return $presta = $this->$em->getDoctrine()
+            ->getRepository(User::class)
+            ->lastHiredPrestataire();
     }
-
-    public function setPrestataire(Prestataire $prestataire): self
-    {
-        $this->prestataire = $prestataire;
-
-        // set the owning side of the relation if necessary
-        if ($this !== $prestataire->getPrestataire()) {
-            $prestataire->setPrestataire($prestataire);
-        }
-
-        return $this;
-    }
-*/
 }

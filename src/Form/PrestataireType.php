@@ -7,9 +7,13 @@ use App\Entity\Commune;
 use App\Entity\Image;
 use App\Entity\Localite;
 use App\Entity\Prestataire;
+use App\Entity\Service;
+use App\Entity\Stage;
 use App\Entity\User;
+use Faker\Test\Provider\Collection;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -40,6 +44,8 @@ class PrestataireType extends AbstractType
             ->add('codepostal',EntityType::class,['class'=>CodePostal::class])
             ->add('localite',EntityType::class,['class'=>Localite::class])
             ->add('commune',EntityType::class,['class'=>Commune::class])
+            ->add('stages',EntityType::class,['class'=>Prestataire::class])
+            ->add('services',EntityType::class,['class'=>Prestataire::class])
             ->add('image',EntityType::class,['class'=>Image::class])
             ->add('logo',EntityType::class,['class'=>Image::class])
         ;

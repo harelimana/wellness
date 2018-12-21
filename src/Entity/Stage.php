@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -57,27 +59,10 @@ class Stage
     private $tarif;
 
     /**
-     * @var
-     * @ORM\OneToMany(targetEntity="App\Entity\Prestataire", mappedBy="stage")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Prestataire", inversedBy="stages")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $prestataire;
-
-    /**
-     * @return mixed
-     */
-    public function getPrestataire()
-    {
-        return $this->prestataire;
-    }
-
-    /**
-     * @param mixed $prestataire
-     */
-    public function setPrestataire($prestataire): void
-    {
-        $this->prestataire = $prestataire;
-    }
+    private $prestataires;
 
 
     public function __construct()
@@ -86,6 +71,7 @@ class Stage
         $this->finStage = new \DateTime();
         $this->affichageDebut = new \DateTime();
         $this->affichageFin = new \DateTime();
+        $this->prestataire = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -189,9 +175,41 @@ class Stage
         return $this;
     }
 
-       public function __toString()
+    /**
+     * @return ArrayCollection
+     */
+    public function getPrestataire(): ArrayCollection
     {
-        return $this->description;
+        return $this->prestataires;
+    }
+
+    /**
+     * @param mixed $prestataires
+     */
+    public function setPrestataires($prestataires): void
+    {
+        $this->prestataires = $prestataires;
+    }
+
+    /**
+     * @param Prestataire $prestataire
+     * @return Stage
+     */
+    public function addPrestataire(Prestataire $prestataire): self
+    {
+        if(!$this->prestataire->contains($prestataire)){
+            $this->prestataires[] = $prestataire;
+            $prestataire->addStage($this);
+        }
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function __toString()
+    {
+        return $this->name;
     }
 
 }

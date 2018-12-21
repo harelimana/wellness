@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Commune;
 use App\Entity\Prestataire;
+use App\Entity\Service;
 use App\Entity\User;
 use App\Form\PrestataireType;
 use App\Repository\PrestataireRepository;
+use App\Repository\CommuneRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -19,7 +22,7 @@ class PrestataireController extends AbstractController
      */
     public function index()
     {
-        return $this->render('prestataire/index.html.twig', [
+        return $this->render('prestataire/services.html.twig', [
             'controller_name' => 'PrestataireController',
         ]);
     }
@@ -68,7 +71,7 @@ class PrestataireController extends AbstractController
     public function detailsPrestataire($slug)
     {
         $manager = $this->getDoctrine()
-                        ->getRepository('App:Prestataire');
+                        ->getRepository(Prestataire::class);
         $prestataire = $manager->findOneBy(['slug' => $slug]);
 
         if (isset($prestataire) == false) {
@@ -117,5 +120,28 @@ class PrestataireController extends AbstractController
         return $this->render('prestataire/servicesByPresta.html.twig',
             ['services' => $services]);
 
+    }
+
+    /**
+     * @Route("/researchPrestataire", name="researchprestataire")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function recherchePrestaires(Request $request)
+    {
+
+        $doctrine = $this->getDoctrine();
+        $repoCommunes = $doctrine->getRepository(Commune::class);
+        $repoServices = $doctrine->getRepository(Service::class);
+        $repoPrestataire = $doctrine->getRepository(Prestataire::class);
+        $communes = $repoCommunes->findAll(); // request from CommuneRepository
+        $services = $repoServices->findAll(); // request from ServiceRepository
+        $prestataires = $repoPrestataire->findAll(); // request dans repo Prestataire
+
+        return $this->render('prestataire/list/recherchePrestataire.html.twig', [
+            'communes'=>$communes,
+            'services'=>$services,
+            'prestataires'=>$prestataires
+        ]);
     }
 }

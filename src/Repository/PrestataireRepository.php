@@ -38,7 +38,15 @@ class PrestataireRepository extends ServiceEntityRepository
             ->getOneOrNullResult();
     }
 
-
+    public function lastHiredPrestataire()
+    {
+        return $this->createQueryBuilder('u')
+            //   ->setParameter('val', $value)
+            ->orderBy('u.inscriptionDate', 'DESC')
+            ->setMaxResults(8)
+            ->getQuery()
+            ->getResult();
+    }
     /*
     public function findOneBySomeField($value): ?Prestataire
     {

@@ -13,8 +13,13 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SecurityController extends AbstractController
 {
+
     /**
      * @Route("/registration", name="security_signin")
+     * @param Request $request
+     * @param ObjectManager $manager
+     * @param UserPasswordEncoderInterface $encoder
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
     {
@@ -23,15 +28,15 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $hash = $encoder->encodePassword($presta,$presta->getPassword());  // you can get erro if the class doesn't implements the UserInterface and the requireds methods (see User)
+            $hash = $encoder->encodePassword($presta,$presta->getPassword());  // you can get error if the class doesn't implements the UserInterface and the requireds methods (see User)
             $presta->setPassword($hash);
          //   $presta->getPassword();
             $manager->persist($presta);
             $manager->flush();
 
-            return $this->redirectToRoute('securitylogin');
+            return $this->redirectToRoute('service');
         }
-        return $this->render('security/index.html.twig', [
+        return $this->render('security/registration/registrate.html.twig', [
             'form' => $form->createView()
         ]);
     }

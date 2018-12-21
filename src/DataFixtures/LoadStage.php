@@ -4,10 +4,11 @@ namespace App\DataFixtures;
 
 use App\Entity\Stage;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Factory;
 
-class LoadStage extends Fixture
+class LoadStage extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -22,14 +23,17 @@ class LoadStage extends Fixture
             $stage->setDebutstage($data->dateTime);
             $stage->setFinStage($data->dateTime);
             $stage->setMoreInfo($data->text);
-            $stage->setTarif($data->NumberBetween(20,500));
-
+            $stage->setTarif($data->NumberBetween(20, 500));
+            $stage->addPrestataire($this->getReference('prestataire' . rand(1, 8)));
             $manager->persist($stage);
 
             $this->setReference("stage" . $i, $stage);
         }
 
         $manager->flush();
-        $manager->flush();
+    }
+    public function getDependencies()
+    {
+        return [LoadPrestataire::class];
     }
 }

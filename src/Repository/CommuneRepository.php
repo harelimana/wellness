@@ -19,6 +19,10 @@ class CommuneRepository extends ServiceEntityRepository
         parent::__construct($registry, Commune::class);
     }
 
+    public function findSortedCommunes()
+    {
+        return $this->findBy(array(), array('commune' => 'ASC'));
+    }
 //    /**
 //     * @return Commune[] Returns an array of Commune objects
 //     */
