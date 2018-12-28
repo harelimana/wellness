@@ -294,4 +294,14 @@ Abstract class User implements UserInterface
             ->getRepository(User::class)
             ->lastHiredPrestataire();
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function serviceByPrestataire($id)
+    {
+       return $this->getDoctrine()->getRepository(User::class)->findServiceByPrestataire($id);
+        //    ->findOneBy($id);
+    }
 }

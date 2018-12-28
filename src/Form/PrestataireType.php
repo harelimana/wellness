@@ -44,8 +44,8 @@ class PrestataireType extends AbstractType
             ->add('codepostal',EntityType::class,['class'=>CodePostal::class])
             ->add('localite',EntityType::class,['class'=>Localite::class])
             ->add('commune',EntityType::class,['class'=>Commune::class])
-            ->add('stages',EntityType::class,['class'=>Prestataire::class])
-            ->add('services',EntityType::class,['class'=>Prestataire::class])
+         //   ->add('stages',EntityType::class,['class'=>Prestataire::class])
+          //  ->add('services',EntityType::class,['class'=>Prestataire::class])
             ->add('image',EntityType::class,['class'=>Image::class])
             ->add('logo',EntityType::class,['class'=>Image::class])
         ;

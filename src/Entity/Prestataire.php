@@ -190,9 +190,9 @@ class Prestataire extends User
 
     /**
      * @param Stage $stage
-     * @return Stage|Stage[]|ArrayCollection
+     * @return Stage|ArrayCollection
      */
-    public function addStage(Stage $stage)
+    public function addStage(Stage $stage): ArrayCollection
     {
         if (!$this->stages->contains($stage)) {
             $this->stages[] = $stage;
@@ -212,7 +212,7 @@ class Prestataire extends User
 
     /**
      * @param Service $service
-     * @return Service
+     * @return Service|ArrayCollection
      */
     public function addService(Service $service)
     {
@@ -225,6 +225,22 @@ class Prestataire extends User
     public function removeService(Service $service)
     {
         $this->services->removeElement($service);
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getServices(): ArrayCollection
+    {
+        return $this->services;
+    }
+
+    /**
+     * @param ArrayCollection $services
+     */
+    public function setServices(ArrayCollection $services): void
+    {
+        $this->services = $services;
     }
 
 

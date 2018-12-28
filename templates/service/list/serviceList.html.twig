@@ -1,61 +1,50 @@
 <div class="page-wrapper">
-    <div class="container">
-        <div class="page-wrapper">
-            <div class="main">
-                <div class="main-inner">
-                    <div class="container">
-                        <div class="row rating-title">
-                            <div class="background-primary">
-                                <h1 class="text-center">Some of the suggested Services </h1>
-                                <h3 class="text-center"> Services Found</h3>
+    <div class="main">
+        <div class="main-inner">
+            <div class="container">
+                <div class="background-primary">
+                    <h2 class="text-center">Some of the suggested Services </h2>
+                    <h3 class="text-center"> Services Found</h3>
+                </div>
+                {# Affichage services trouves #}
+                <div class="row">
+                    {% if service is not empty %}
+                        {% for s in service %}
+                            <div class="col-sm-6">
+                                <div class="posts">
+                                    <div class="post" style="margin-bottom: 15px">
+                                        <div class="post-image">
+                                            {% if s.enAvant == 1 %} {# = enAvant => display of the EnAvant tag #}
+                                                <div class="card-row-price">
+                                                    Services du mois <i class="fa fa-star"></i>
+                                                </div>
+                                            {% endif %}
+                                            {% if service is not null %}
+
+                                                <img src="{{ asset('assets/img/tmp/product-5.jpg') }}"
+                                                     alt="{{ s.Name }}">
+                                            {% endif %}
+                                            <!--       <a class="read-more" href="">View</a> -->
+                                        </div><!-- /.post-image -->
+
+                                        <div class="post-content">
+                                            <div class=""></div><!-- /.post-label -->
+                                            <div class=""></div><!-- /.post-date -->
+                                            <h2>{{ s.Name }}</h2>
+                                            <p>{{ s.description }}</p>
+                                        </div><!-- /.post-content -->
+                                    </div><!-- /.post -->
+
+                                </div><!-- /.posts -->
                             </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="caution">
+                            <h2>{{ error.msg }}</h2>
                         </div>
-                        {# Affichage services trouves #}
-                        <div class="row">
-                            {% if service is not empty %}
-                                {% for s in service %}
-                                    <div class="col-sm-6">
-                                        <div class="posts">
-                                            <div class="post" style="margin-bottom: 15px">
-                                                <div class="post-image">
-                                                    {% if s.enAvant == 1 %} {# = enAvant => display of the EnAvant tag #}
-                                                        <div class="card-row-price">
-                                                            Services du mois <i class="fa fa-star"></i>
-                                                        </div>
-                                                    {% endif %}
-                                                    {% if service is not null %}
-
-                                                        <img src="{{ asset('assets/img/tmp/product-5.jpg') }}"
-                                                             alt="{{ s.Name }}">
-                                                    {% endif %}
-                                                    <!--       <a class="read-more" href="">View</a> -->
-                                                </div><!-- /.post-image -->
-
-                                                <div class="post-content">
-                                                    <div class=""></div><!-- /.post-label -->
-                                                    <div class=""></div><!-- /.post-date -->
-                                                    <h2>{{ s.Name }}</h2>
-                                                    <p>{{ s.description }}</p>
-                                                </div><!-- /.post-content -->
-                                            </div><!-- /.post -->
-
-                                        </div><!-- /.posts -->
-                                    </div>
-                                {% endfor %}
-                            {% else %}
-                                <div class="caution">
-                                    <h2>{{ error.msg }}</h2>
-                                </div>
-                            {% endif %}
-                        </div>
-                        </div><!-- /.row -->
-                        <!-- /.pagination -->
-                        <div class="pager">
-                            {# display navigation #}
-                        </div>
-                    </div><!-- /.container -->
-                </div><!-- /.main-inner -->
-            </div><!-- /.main -->
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
 </div>

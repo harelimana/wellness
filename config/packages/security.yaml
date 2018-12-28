@@ -23,7 +23,7 @@ security:
         check_path: securitylogin
       logout:
         path: securitylogout
-        target: securitylogin
+        target: home
       # activate different ways to authenticate
 
       # http_basic: true

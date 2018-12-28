@@ -47,6 +47,29 @@ class PrestataireRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findServicesByPrestataire($id)
+    {
+        return $this->createQueryBuilder('sp')
+            ->setParameter('val', $id)
+            ->orderBy('sp.service_id', 'DESC')
+            ->setMaxResults(8)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findServiceByPrestataire($id)
+    {
+        return $this->createQueryBuilder('sp')
+            ->innerJoin('sp.service_id', 's')
+            ->addSelect('s')
+            ->andWhere('p.service_id = :id')
+            ->setParameter('id', $id)
+            ->orderBy('sp.service_id', 'DESC')
+            ->setMaxResults(8)
+            ->getQuery()
+            ->getResult();
+    }
     /*
     public function findOneBySomeField($value): ?Prestataire
     {

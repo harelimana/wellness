@@ -1,16 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 {% block title %}Just a selected list of Services !{% endblock %}
 {% block body %}
 
-    {% block container %}
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10">
+        {% block details %}
                     {% include("/service/list/serviceList.html.twig") %}
-                </div>
-            </div>
-        </div>
+         {% endblock %}
 
-    {% endblock %}
 {% endblock %}

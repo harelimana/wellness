@@ -2,9 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Prestataire;
 use App\Entity\Service;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ServiceController extends AbstractController
@@ -36,21 +40,21 @@ class ServiceController extends AbstractController
     }
 
     /**
-     * @param Service $service
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     * @Route("/service/{id}", name="identifiedServiceDetails")
+     * @Route("/serviceByPresta/{id}", name="serviceByPresta")
+     * @param $id
+     * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function detailsService($id)
     {
-        $service = $this->getDoctrine()->getRepository(Service::class)
-            ->find($id);
+        $em = $this->getDoctrine()->getRepository(Prestataire::class);
+        $prestataire = $em->find($id);
 
-        if (isset($services) == false) {
+        if (isset($prestataire) == false) {
             return $this->redirectToRoute('service');
 
         } else {
-
-            return $this->render('/service/details/serviceDescription.html.twig', ['service' => $service]);
+            $services = $prestataire->serviceByPrestataire($id);
+            return $this->render('/service/details/serviceDescription.html.twig', ['service' => $services]);
 
         }
     }
