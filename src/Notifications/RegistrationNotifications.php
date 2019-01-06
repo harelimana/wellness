@@ -9,7 +9,7 @@ use Twig\Environment;
 class RegistrationNotifications{
 
     /**
-     * @var Swift_Mailer
+     * @var \Swift_Mailer
      */
     private $mailer;
 
@@ -18,7 +18,7 @@ class RegistrationNotifications{
      */
     private $renderer;
 
-    public function __construct(Swift_mailer $mailer, Environment $renderer)
+    public function __construct(\Swift_Mailer $mailer, Environment $renderer)
     {
         $this->mailer = $mailer;
         $this->renderer = $renderer;
@@ -28,18 +28,17 @@ class RegistrationNotifications{
      * @param $name
      * @param $subject
      * @param $sendto
-     * @param Swift_Mailer $mailer
      * @return mixed
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function mailling(Prestataire $name, $subject, $sendto, Swift_Mailer $mailer)
+    public function mailling(Prestataire $name, $subject, $sendto)
     {
-        $sendto = 'bloemoide@gmail.com';
-        $message = (new \Swift_Message('Hello Email'))
+        $message = (new \Swift_Message('Hello :', $name->getName()))
             ->setFrom('bloemoide@gmail.com')
             ->setTo($sendto) //'recipient.harelimana@gmail.com'
+            ->setReplyTo($name->getEmail()) //'recipient.harelimana@gmail.com'
             ->setSubject($subject)
             ->setBody(
                 $this->renderer->render(
@@ -51,8 +50,8 @@ class RegistrationNotifications{
             )
         ;
 
-        $mailer->send($message);
+        $this->mailer->send($message);
 
-        return $this->renderer->render('mail sent to : ' . $name); //not required but useful
+        return $this->renderer->render('security/registration/registrationSuccess.html.twig',['name'=>$name]); //not required but useful
     }
 }

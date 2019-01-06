@@ -7,10 +7,12 @@ use App\Entity\User;
 use App\Form\PrestataireType;
 use App\Notifications\RegistrationNotifications;
 use Doctrine\Common\Persistence\ObjectManager;
+use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Twig\Environment;
 
 class SecurityController extends AbstractController
 {
@@ -29,15 +31,18 @@ class SecurityController extends AbstractController
     public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, RegistrationNotifications $notification)
     {
         $sendto = "bloemoide@gmail.com";
+        // $sendfrom = "bloemoide@gmail.com";
         $subject = "coucou, this is a mail about Symfony project";
+
         $prestataire = new Prestataire();
+     //   $mailling = new RegistrationNotifications();
         $form = $this->createForm(PrestataireType::class, $prestataire);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $cryptogram = $encoder->encodePassword($prestataire,$prestataire->getPassword());  // you can get error if the class doesn't implements the UserInterface and the requireds methods (see User)
             $prestataire->setPassword($cryptogram);
-            $notification->mailling($prestataire,$sendto,$subject,$mail = null);
+            $notification->mailling($prestataire,$subject,$sendto);
             $manager->persist($prestataire);
             $manager->flush();
 

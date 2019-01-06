@@ -6,11 +6,11 @@
        Hi {{ name }}! You're successfully registered.
 
        {# example, assuming you have a route named "login" #}
-       To login, go to: <a href="{{ path('security_login') }}">connexion</a>.
+       To login, go to: <a href="{{ path('securitylogin') }}">connexion</a>.
 
        Thanks!
 
        {# Makes an absolute URL to the /images/logo.png file #}
-       <img src="{{ (asset('assets/img/image.png') }}">
+       <img src="{{ (asset('assets/img/image.png')) }}">
    </p>
 {% endblock %}
