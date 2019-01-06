@@ -1,0 +1,48 @@
+{% extends '/service/layout.html.twig' %}
+{% block details %}
+<div class="container">
+    <div class="row">
+        <div class="document-title">
+            <h1>Liste des</h1>
+            <h1>Catégories de Services</h1>
+            {# Affichage total objet trouvé #}
+            <h2 class="text-center"> X Services trouvés</h2>
+        </div>
+        {% if services is not empty %}
+            {% for p in services %}
+                <div class="col-sm-6">
+                    <div class="posts">
+                        <div class="post" style="margin-bottom: 15px">
+                            <div class="post-image">
+                                {% if p.enAvant == 1 %} {# = enAvant => Affiche étiquette EnAvant#}
+                                    <div class="card-row-price">
+                                        Services du mois <i class="fa fa-star"></i>
+                                    </div>
+                                {% endif %}
+                                {% if p.image is not null %}
+                                    <img src="{{ p.image }}" style="border: 1px solid black" alt="{{ p.Name }}" width="640" height="125">
+                                {% else  %}
+                                    <img src="{{ asset('assets/img/tmp/product-11.jpg') }}" alt="{{ p.Name }}">
+                                {% endif %}
+                                <a class="read-more" href="{{ path('serviceDetails',{'slug':p.slug}) }}">View</a>
+                            </div><!-- /.post-image -->
+
+                            <div class="post-content">
+                                <div class=""></div><!-- /.post-label -->
+                                <div class=""></div><!-- /.post-date -->
+                                <h2>{{ p.Name }}</h2>
+                                <p>{{ p.description }}</p>
+                            </div><!-- /.post-content -->
+                        </div><!-- /.post -->
+
+                    </div><!-- /.posts -->
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="caution">
+                <h2>{{ error.msg }}</h2>
+            </div>
+        {% endif %}
+    </div><!-- /.row -->
+</div><!-- /.container -->
+{% endblock %}

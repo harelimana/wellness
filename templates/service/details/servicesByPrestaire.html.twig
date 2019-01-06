@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+{% block details %}
+<div>
+    {% for serv in service %}
+    <ul>
+        {{ serv }}
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %}

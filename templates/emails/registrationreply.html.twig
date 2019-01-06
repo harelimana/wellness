@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+{% block details %}}
+    <h3>You did it! You registered!</h3>
+
+   <p>
+       Hi {{ name }}! You're successfully registered.
+
+       {# example, assuming you have a route named "login" #}
+       To login, go to: <a href="{{ path('security_login') }}">connexion</a>.
+
+       Thanks!
+
+       {# Makes an absolute URL to the /images/logo.png file #}
+       <img src="{{ (asset('assets/img/image.png') }}">
+   </p>
+{% endblock %}

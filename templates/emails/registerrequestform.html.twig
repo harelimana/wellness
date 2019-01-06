@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+{% block details %}
+    <form class="form-horizontal" action="{{ asset('/preregistration') }}" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>Form Name</legend>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Add Subject:</label>
+                <div class="col-md-4">
+                    <input id="textinput" name="subject" type="text" placeholder="add subject"
+                           class="form-control input-md">
+                    <span class="help-block">help</span>
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Send To:</label>
+                <div class="col-md-4">
+                    <input type="email" id="textinput" name="email" placeholder="add recipient email"
+                           class="form-control input-md">
+                    <span class="help-block">help</span>
+                </div>
+            </div>
+            <!-- Textarea -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textarea">Message</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="textarea" name="message">default text</textarea>
+                </div>
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton">Click to Send Mail</label>
+                <div class="col-md-4">
+                    <button type="submit" name="submit" class="btn btn-primary">Send</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}
