@@ -34,29 +34,42 @@ class ServiceController extends AbstractController
         $services = $this->getDoctrine()
             ->getRepository(Service::class)
             ->find($id);
-        return $this->render('service/details/details_services.html.twig', array(
-            'service' => $services
-        ));
-    }
-
-    /**
-     * @Route("/serviceByPresta/{id}", name="serviceByPresta")
-     * @param $id
-     * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function detailsService($id)
-    {
-        $em = $this->getDoctrine()->getRepository(Prestataire::class);
-        $prestataire = $em->find($id);
-
-        if (isset($prestataire) == false) {
-            return $this->redirectToRoute('service');
-
+        if (isset($services) !== false) {
+            return $this->render('/service/details/serviceDetails.html.twig', ['service' => $services]);
         } else {
-            $services = $prestataire->serviceByPrestataire($id);
-            return $this->render('/service/details/serviceDescription.html.twig', ['service' => $services]);
-
+            return $this->redirectToRoute('service');
         }
     }
 
+    /**
+     * @Route("/serviceDetails/{slug}", name="serviceDetails")
+     * @param $slug
+     * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function detailsService($slug)
+    {
+        $services = $this->getDoctrine()
+            ->getRepository(Service::class)
+            ->findBySlug($slug);
+        if (isset($services) !== false) {
+            return $this->render('/service/details/serviceDescription.html.twig', ['service' => $services]);
+        } else {
+            return $this->redirectToRoute('service');
+        }
+    }
+
+    /**
+     * @Route("/servicesByPrestataire/{slug}", name="servicesPrestataire")
+     * @param $slug
+     * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function listServicesByPrestataire($arg = 74){
+        $services = $this->getDoctrine()->getRepository(Prestataire::class);
+        $services->findServicesByPrestataire($arg);
+        if (isset($services) !== false) {
+            return $this->render('/service/details/servicesByPrestaire.html.twig', ['service' => $services]);
+        } else {
+            return $this->redirectToRoute('service');
+        }
+    }
 }

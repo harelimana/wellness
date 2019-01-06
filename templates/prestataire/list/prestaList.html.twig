@@ -18,14 +18,16 @@
                             <div class="card-simple-content">
                                 <h2>{{ p.name }}</h2>
                                 <div class="card-simple-actions">
-                                    <a href="{{ path('detailsPrestataire',{'slug':p.slug}) }}" class="fa fa-search"></a>
+                                    <a href="{{ path('detailsPrestataire',{'slug':p.slug}) }}" class="fa fa-search">show details</a>
                                 </div><!-- /.card-simple-actions -->
                             </div><!-- /.card-simple-content -->
                             {% if p.commune is not empty %}
                                 <div class="card-simple-label">{{ p.commune.Commune }}</div>
                             {% endif %}
 
-
+                            {% if p.services is not empty %}
+                                <div class="card-simple-price">{{ p.services[0] }}</div>
+                            {% endif %}
                         </div><!-- /.card-simple-background -->
                     </div><!-- /.card-simple -->
                 </div><!-- /.col-* -->

@@ -1,6 +1,4 @@
 
-<div class="page-wrapper">
-
     <header class="header">
         <div class="header-wrapper">
             <div class="container">
@@ -25,7 +23,8 @@
                             </ul><!-- /.header-nav-social -->
 
                             <ul class="header-nav-secondary nav nav-pills">
-                                <li><a href={{  path('security_signin') }}>Register</a></li>
+                                <li><a href={{ path('security_signin') }}>Internaute Registration</a></li>
+                                <li><a href={{ path('security_signin') }}>Prestataire Registration</a></li>
                                 {% if not app.user %}
                                     <li>
                                         <a href="{{ path('securitylogin') }}">Connexion <i class="fa fa-chevron-down"></i></a>
@@ -51,7 +50,7 @@
 
                             <ul class="header-nav-primary nav nav-pills collapse navbar-collapse">
                                 <li>
-                                    <a href="#">Home <i class="fa fa-chevron-down"></i></a>
+                                    <a href="{{ asset("/home") }}">Home <i class="fa fa-chevron-down"></i></a>
 
                                     <ul class="sub-menu">
                                         <li><a href="{{ asset("/home") }}">Our recent prestataires</a></li>
@@ -65,12 +64,11 @@
                                 </li>
 
                                 <li>
-                                    <a href="#">Prestataire <i class="fa fa-chevron-down"></i></a>
+                                    <a href="{{ asset("/listprestataire") }}">Prestataire <i class="fa fa-chevron-down"></i></a>
 
                                     <ul class="sub-menu">
-                                        <li><a href="{{ asset("/researchPrestataire") }}">Find a prestataire</a></li>
+                                        <li><a href="{{ asset("/searchPrestataire") }}">Find a prestataire</a></li>
                                         <li><a href="{{ asset("/listprestataire") }}">Prestataires True List</a></li>
-                                        <li><a href="{{ asset("/prestataireServices") }}">Suggested Services</a></li>
                                         <li><a href="index-google-map-transparent-header.html">Prestataire Google Location</a></li>
                                         <li><a href="index-image.html">Susgested Stages</a></li>
                                         <li><a href="index.html">All Prestataires by Location</a></li>
@@ -79,11 +77,11 @@
                                 </li>
 
                                 <li class="active">
-                                    <a href="#">Services <i class="fa fa-chevron-down"></i></a>
+                                    <a href="{{ asset("/service") }}">Services <i class="fa fa-chevron-down"></i></a>
 
                                     <ul class="sub-menu">
                                         <li><a href="{{ asset("/service") }}">List of Services</a></li>
-                                        <li><a href="{{ asset("/details_service/{id}") }}">Row + Map</a></li>
+                                        <li><a href="{{ asset("/details_service/{id}") }}">Details of service (by id)</a></li>
                                         <li><a href="listing-grid.html">Grid</a></li>
                                         <li><a href="listing-grid-sidebar.html">Prestataires by Region</a></li>
                                         <li><a href="listing-row.html">Row</a></li>
@@ -92,11 +90,11 @@
                                 </li>
 
                                 <li class="has-mega-menu ">
-                                    <a href="#">Pages <i class="fa fa-chevron-down"></i></a>
+                                    <a href="#">Comments and News <i class="fa fa-chevron-down"></i></a>
 
                                     <ul class="mega-menu">
                                         <li>
-                                            <a href="#">General</a>
+                                            <a href="#">News</a>
 
                                             <ul>
                                                 <li><a href="faq.html">FAQ</a></li>
@@ -108,7 +106,7 @@
                                         </li>
 
                                         <li>
-                                            <a href="#">User Account</a>
+                                            <a href="#">Comments about a Prestataire</a>
 
                                             <ul>
                                                 <li><a href="user-profile-edit.html">Profile Edit</a></li>
@@ -190,4 +188,3 @@
             </div><!-- /.container -->
         </div><!-- /.header-wrapper -->
     </header><!-- /.header -->
-</div>

@@ -70,15 +70,15 @@ class PrestataireController extends AbstractController
      */
     public function detailsPrestataire($slug)
     {
-        $manager = $this->getDoctrine()
-                        ->getRepository(Prestataire::class);
-        $prestataire = $manager->findOneBy(['slug' => $slug]);
+        $prestataire = $this->getDoctrine()
+                        ->getRepository(Prestataire::class)
+                        ->findBySlug($slug);
 
         if (isset($prestataire) == false) {
             return $this->redirectToRoute('detailsPrestataireErrors');
 
         } else {
-            return $this->render('prestataire/prestataireDetailsSuccess.html.twig',
+            return $this->render('prestataire/details/prestataireDetails.html.twig',
                 ['prestataire' => $prestataire]);
         }
     }
@@ -104,12 +104,11 @@ class PrestataireController extends AbstractController
     }
 
     /**
-     * @Route("/servicesprestataire/{id}", name="servicesPrestataire")
+     * @Route("/servicesprestataire/{id}", name="servicesPrestataireId")
      * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      * this method uses the PrestataireRepository
      */
-
     public function show($id)
     {
         $prestataire = $this->getDoctrine()
@@ -123,7 +122,7 @@ class PrestataireController extends AbstractController
     }
 
     /**
-     * @Route("/researchPrestataire", name="researchprestataire")
+     * @Route("/searchPrestataire", name="searchprestataire")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -144,4 +143,5 @@ class PrestataireController extends AbstractController
             'prestataires'=>$prestataires
         ]);
     }
+
 }

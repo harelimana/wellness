@@ -51,22 +51,22 @@ class PrestataireRepository extends ServiceEntityRepository
     public function findServicesByPrestataire($id)
     {
         return $this->createQueryBuilder('sp')
-            ->setParameter('val', $id)
-            ->orderBy('sp.service_id', 'DESC')
+            ->setParameter('id', $id)
+            ->where('sp.id = :id')
+            ->orderBy('sp.id', 'DESC')
             ->setMaxResults(8)
             ->getQuery()
             ->getResult();
     }
 
-    public function findServiceByPrestataire($id)
-    {
-        return $this->createQueryBuilder('sp')
-            ->innerJoin('sp.service_id', 's')
-            ->addSelect('s')
-            ->andWhere('p.service_id = :id')
-            ->setParameter('id', $id)
-            ->orderBy('sp.service_id', 'DESC')
-            ->setMaxResults(8)
+
+    public function searchBySlug($slug){
+
+        $qb = $this->createQueryBuilder('s')
+            ->where('s.slug = :slug')
+            ->setParameter('slug', $slug);
+
+        return $qb
             ->getQuery()
             ->getResult();
     }

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -228,9 +229,9 @@ class Prestataire extends User
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection|Service[]
      */
-    public function getServices(): ArrayCollection
+    public function getServices(): Collection
     {
         return $this->services;
     }
@@ -243,6 +244,22 @@ class Prestataire extends User
         $this->services = $services;
     }
 
+    /**
+     * @param $arg
+     * @param EntityManager $em
+     * @return mixed
+     */
+    public function findServicesByPrestataire($arg, EntityManager $em)
+    {
+         $services = $this->$em->getDoctrine()->getRepository(Prestataire::class, $prestataire);
+        return $services->findServiceByPrestataire($arg);
+    }
+
+    public function findBySlug($slug){
+        return $service = $this->$em->getDoctrine()
+            ->getRepository(Prestataire::class)
+            ->searchBySlug();
+    }
 
     /**
      * @return mixed

@@ -13,7 +13,7 @@
                 <form method="post" action="?">
 
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-lg-4">
                             <div class="form-group">
                                 {{ form_row(form.name, {'label':'Last Name','attr':{'placeholder':'Your last name'}}) }}
                             </div><!-- /.form-group -->
@@ -26,6 +26,7 @@
                             <div class="form-group">
                                 {{ form_row(form.confirmPassword) }}
                             </div><!-- /.form-group -->
+
                             <div class="form-group">
                                 {{ form_row(form.website) }}
                             </div><!-- /.form-group -->
@@ -47,6 +48,7 @@
                             <div class="form-group">
                                 {{ form_row(form.commune) }}
                             </div><!-- /.form-group -->
+
                             <div class="form-group">
                                 {{ form_row(form.image) }}
                             </div><!-- /.form-group -->
@@ -77,7 +79,7 @@
 
                             {{ form_end(form) }}
                         </div><!-- /.form-group -->
-                    </div><!-- /.form-group -->
+                    </div><!-- /. row -->
                 </form>
             </div><!-- /.col-sm-4 -->
         </div><!-- /.row -->

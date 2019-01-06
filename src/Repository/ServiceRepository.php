@@ -8,6 +8,7 @@
 
 namespace App\Repository;
 
+    use App\Entity\Prestataire;
     use App\Entity\Service;
     use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
     use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -25,6 +26,18 @@ class ServiceRepository extends ServiceEntityRepository
         parent::__construct($registry, Service::class);
     }
 
+    //invoked by ServiceController
+
+    public function findBySlug($slug){
+
+        $qb = $this->createQueryBuilder('s')
+            ->where('s.slug = :slug')
+            ->setParameter('slug', $slug);
+
+        return $qb
+            ->getQuery()
+            ->getResult();
+    }
 //    /**
 //     * @return Service[] Returns an array of Service objects
 //     */
@@ -54,7 +67,7 @@ class ServiceRepository extends ServiceEntityRepository
     }
     */
 
-    /* helps to get a service according its provided slug identifier*/
+    /* get a service according to its provided slug identifier */
 
         /**
          * @param $slug
@@ -72,5 +85,20 @@ class ServiceRepository extends ServiceEntityRepository
                 ->getResult();
         }
 
+
+        // query services by perstataire
+
+        /**
+         * @param $arg
+         * @return Prestataire|null
+         */
+        public function servicesByPrestaitre($arg): ?Prestataire{
+            $em = $this->getEntityManager();
+            $query = $em->createQuery('SELECT service.name as nameService, service.id FROM service INNER JOIN prestataire_service ON prestataire_service.prestataire_id = service.id WHERE prestataire_id = :prestataire')
+                ->setParameter('prestataire',$arg);
+
+            return $services = $query->execute();
+
+        }
 
     }

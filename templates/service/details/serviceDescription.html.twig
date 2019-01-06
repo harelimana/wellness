@@ -1,31 +1,63 @@
-{% extends 'base.html.twig' %}
-{% block body %}
-    {% block container %}
+{% extends '/service/layout.html.twig' %}
+{% block details %}
 
+    <div class="card-row">
+        <div>
+            <h3>Detail for the following service</h3>
+        </div>
+        <div class="card-row-inner">
+            {% if service[0] is not empty %}
+                <div class="card-row-image" style="background-image: url('{{asset('assets/img/tmp/product-1.jpg')}}');">
+                    {% if service[0].enAvant == 1 %} {# = enAvant => Affiche étiquette EnAvant#}
+                        <div class="card-row-price">
+                            Services du mois <i class="fa fa-star"></i>
+                        </div>
+                    {% endif %}
+                </div><!-- /.card-row-image -->
+            {% else %}
+                <div class="card-row-image" style="background-image: url('{{asset('assets/img/tmp/product-1.jpg')}}')">
+                    {% if service[0].enAvant == 1 %} {# = enAvant => Affiche étiquette EnAvant#}
+                        <div class="card-row-price">
+                            Services du mois <i class="fa fa-star"></i>
+                        </div>
+                    {% endif %}
+                </div><!-- /.card-row-image -->
+            {% endif %}
+            <div class="card-row-body">
+                <h2 class="card-row-title">{{ service[0].Name }}</h2>
+                <div class="card-row-content"><p>{{ service[0].description }}</p></div><!-- /.card-row-content -->
+            </div><!-- /.card-row-body -->
+        </div><!-- /.card-row-inner -->
         <div class="card-row">
-            <div class="card-row-inner">
-                {% if service is not empty %}
-                    <div class="card-row-image" style="background-image: url('{{asset('assets/img/tmp/product-1.jpg')}}');">
-                        {% if service.enAvant == 1 %} {# = enAvant => Affiche étiquette EnAvant#}
-                            <div class="card-row-price">
-                                Services du mois <i class="fa fa-star"></i>
-                            </div>
-                        {% endif %}
-                    </div><!-- /.card-row-image -->
+            <table id="categories" class="table table-striped">
+                <tr>
+                    <th>Prestataire</th>
+                    <th>Commune</th>
+                    <th>Email</th>
+                    <th>Web Site </th>
+                </tr>
+                {% if service[0].prestataire is empty %}
+                    <tr>
+                        <td class="">No prestataire found for this service</td>
+                    </tr>
                 {% else %}
-                    <div class="card-row-image" style="background-image: url('{{asset('assets/img/tmp/product-1.jpg')}}')">
-                        {% if service.enAvant == 1 %} {# = enAvant => Affiche étiquette EnAvant#}
-                            <div class="card-row-price">
-                                Services du mois <i class="fa fa-star"></i>
-                            </div>
-                        {% endif %}
-                    </div><!-- /.card-row-image -->
+                    {% for prestataire in service[0].prestataire %}
+                        <tr>
+                            <td>
+                                <a href="{{ path('detailsPrestataire', {'slug':prestataire.slug}) }}">
+                                    {{ prestataire.name }}
+                                </a>
+                            </td>
+                            <td>{{ prestataire.commune }}</td>
+                            <td>{{ prestataire.email }}</td>
+                            <td>
+                                <a href="{{ prestataire.website }}">{{ prestataire.website }}</a>
+                            </td>
+
+                        </tr>
+                    {% endfor %}
                 {% endif %}
-                <div class="card-row-body">
-                    <h2 class="card-row-title">{{ service.Name }}</h2>
-                    <div class="card-row-content"><p>{{ service.description }}</p></div><!-- /.card-row-content -->
-                </div><!-- /.card-row-body -->
-            </div><!-- /.card-row-inner -->
-        </div><!-- /.card-row -->
-    {% endblock %}
+            </table>
+        </div>
+    </div><!-- /.card-row -->
 {% endblock %}

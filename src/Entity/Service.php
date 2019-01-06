@@ -125,9 +125,9 @@ class Service
     }
 
     /**
-     * @return ArrayCollection
+     * @return Prestataire[]|ArrayCollection|Collection
      */
-    public function getPrestataire(): ArrayCollection
+    public function getPrestataire()
     {
         return $this->prestataires;
     }
@@ -145,6 +145,20 @@ class Service
      */
     public function removePrestataire(Prestataire $prestataire){
         $this->prestataires->removeElement($prestataire);
+    }
+
+    public function searchBySlug($slug){
+        return $service = $this->$em->getDoctrine()
+            ->getRepository(Service::class)
+            ->findBySlug();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function servicesByPrestataire()
+    {
+        return $this->services = $this->getRepository()->servicesbyPrestataire();
     }
 
     /**

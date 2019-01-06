@@ -1,106 +1,83 @@
-{# Details on a prestataire #}
-{% extends 'base.html.twig' %}
+{# Prestatire Details  #}
+{% extends '/prestataire/layoutPrestataire.html.twig' %}
 
-{% block content %}
-    <div class="main">
-    <div class="main-inner">
-        <div class="document-title">
-            <h1>Prestataire</h1>
-        </div>
-        <div class="content">
-            <div class="mt-80 mb80">
-                {% if prestataire.logo is not empty %}
-                <div class="detail-banner" style="background-image: url({{ prestataire.logo.image }});">
-                    {% else  %}
-                    <div class="detail-banner" style="background-image: url({{asset('assets/img/tmp/detail-banner-1.jpg')}});">
-                        {% endif %}
-                        <div class="container">
-                            <div class="detail-banner-left">
-                                <div class="detail-banner-info">
-                                    {% for s in prestataire.categories %}
-                                        <a href="{{ path('detail_service',{'slug':s.slug}) }}"><div class="detail-label">{{ s.nomcat }}</div></a>
-                                    {% endfor %}
-                                </div><!-- /.detail-banner-info -->
+{% block details %}
 
-                                <h2 class="detail-title">
-                                    {{ prestataire.nom }}
-                                </h2>
-                                <div class="detail-banner-address">
-                                    <i class="fa fa-map-o"></i>{{ prestataire.adresseRue }} {{ prestataire.adresseNum }},
-                                    {% if prestataire.codePostal is not empty %} {{ prestataire.codePostal.CodePostal }}{% endif %}
-                                    {% if prestataire.commune is not empty %}{{ prestataire.commune.Commune }}{% endif %}
-                                </div><!-- /.detail-banner-address -->
-                            </div><!-- /.detail-banner-left -->
-                        </div><!-- /.container -->
-                    </div><!-- /.detail-banner -->
+    <div class=document-title">
+        <h1>Prestataire</h1>
+    </div>
 
-                </div>
-
-                <div class="container">
-                    <div class="row detail-content">
-                        <div class="col-sm-7">
-                            {% include 'extension/galerie.html.twig' %}
-
-                            <h2>Carte</h2>
-                            <div class="background-white p20">
-
-                                {% include 'extension/googlemap.html.twig' %}
-
-                            </div>
-
-                        </div><!-- /.col-sm-7 -->
-
-                        <div class="col-sm-5">
-
-                            <h2>Fiche Prestataire</h2>
-                            <div class="background-white p20">
-                                <div class="detail-vcard">
-                                    <div class="detail-logo">
-                                        {% if prestataire.logo is not empty %}
-                                            <img src="{{ prestataire.logo.image }}">
+    <div class="container">
+        <div class="row">
+            <div class="post" style="margin-bottom: 15px">
+                <div class="post-image">
+                    {% if prestataire[0].logo is not empty %}
+                    <div class="col-sm-6">
+                        <div class="posts">
+                            <div class="post" style="margin-bottom: 15px">
+                                <div class="post-image">
+                                    <div class="" style="background-image: url({{ prestataire[0].logo.image }});">
                                         {% else %}
-                                            <img src="{{ asset('assets/img/tmp/prestataire-logo.png') }}">
-                                        {% endif %}
-                                    </div><!-- /.detail-logo -->
-
-                                    <div class="detail-contact">
-                                        <div class="detail-contact-email">
-                                            <i class="fa fa-envelope-o"></i> {{ prestataire.emailContact }}
-                                            {% if is_granted('ROLE_USER') %}
-                                                <a href="{{ path('prestataire_contact', {'slug':prestataire.slug}) }}" style="color: red;">
-                                                    <button class="btn-md" style="border: 1px solid red">Contact us</button>
-                                                </a>
+                                        <div class=""
+                                             style="background-image: url({{ asset('assets/img/tmp/detail-banner-1.jpg') }});">
                                             {% endif %}
-                                        </div>
 
-                                        <div class="detail-contact-phone">
-                                            <i class="fa fa-mobile-phone"></i> <a href="tel:{{ prestataire.telNumber }}">{{ prestataire.telNumber }}</a>
-                                        </div>
-                                        <div class="detail-contact-website">
-                                            <i class="fa fa-globe"></i> <a href="{{ prestataire.website }}" target="_blank">{{ prestataire.website }}</a>
-                                        </div>
-                                        <div class="detail-contact-address">
-                                            <i class="fa fa-map-o"></i>
-                                            {{ prestataire.adresseRue }} {{ prestataire.adresseNum }}<br>
-                                            {% if prestataire.codePostal is not empty %}{{ prestataire.codePostal.CodePostal }}{% endif %},
-                                            {% if prestataire.commune is not empty %}{{ prestataire.commune.Commune }}{% endif %}
-                                        </div>
-                                    </div><!-- /.detail-contact -->
-                                </div><!-- /.detail-vcard -->
+                                            <div>
+                                                <h2 class="detail-title">
+                                                    {{ prestataire[0].name }}
+                                                </h2>
+                                                <div class="post-image">
+                                                    {% for s in prestataire[0].services %}
+                                                        <a href="{{ path('serviceDetails',{'slug':s.slug}) }}">
+                                                            <div class="detail-label">{{ s.name }}</div>
+                                                        </a>
+                                                    {% endfor %}
+                                                </div><!-- /.detail-banner-info -->
+
+                                                <div class="">
+                                                    <i class="fa fa-map-o"></i>{{ prestataire[0].addressRue }} {{ prestataire[0].addressNumber }}
+                                                    ,
+                                                    {% if prestataire[0].codePostal is not empty %} {{ prestataire[0].codePostal.codePostal }}{% endif %}
+                                                    {% if prestataire[0].commune is not empty %}{{ prestataire[0].commune.commune }}{% endif %}
+                                                </div><!-- /.detail-banner-address -->
+                                            </div><!-- /.detail-banner-left -->
+                                        </div><!-- /.container -->
+                                    </div><!-- /.detail-banner -->
+                                </div>
                             </div>
-                        </div><!-- /.col-sm-5 -->
+                        </div>
+                    </div>
+                    <div class="card-row">
+                        <table id="services" class="table table-striped">
+                            <tr>
+                                <th>service</th>
+                                <th>description</th>
+                                <th>Web Site </th>
+                            </tr>
+                            {% if prestataire[0].services is empty %}
+                                <tr>
+                                    <td class="">No service found for this prestataire</td>
+                                </tr>
+                            {% else %}
+                                {% for service in prestataire[0].services %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ path('detailsPrestataire', {'slug':prestataire[0].slug}) }}">
+                                                {{ service.name }}
+                                            </a>
+                                        </td>
+                                        <td>{{ service.description }}</td>
+                                        <td>
+                                            <a href="{{ prestataire[0].website }}">{{ prestataire[0].website }}</a>
+                                        </td>
 
-                        {% include 'prestataire/services/prestataireservices.html.twig' %}
-
-                        {% include 'prestataire/stages/prestatairestages.html.twig' %}
-
-                        {% include 'prestataire/commentaires/prestatairecommentaires.html.twig' %}
-
-                        {% include 'prestataire/promotions/prestatairepromotions.html.twig' %}
-
-                    </div><!-- /.review -->
-                </div><!-- /.row -->
+                                    </tr>
+                                {% endfor %}
+                            {% endif %}
+                        </table>
+                    </div>
+                </div><!-- /.container -->
             </div><!-- /.container -->
-        </div><!-- /.main-inner -->
-    </div><!-- /.main -->
+        </div>
+    </div>
 {% endblock %}

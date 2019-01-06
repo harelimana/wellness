@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Prestataire;
 use App\Entity\User;
 use App\Form\PrestataireType;
+use App\Notifications\RegistrationNotifications;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,19 +20,25 @@ class SecurityController extends AbstractController
      * @param Request $request
      * @param ObjectManager $manager
      * @param UserPasswordEncoderInterface $encoder
+     * @param RegistrationNotifications $notification
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
-    public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
+    public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, RegistrationNotifications $notification)
     {
-        $presta = new Prestataire();
-        $form = $this->createForm(PrestataireType::class, $presta);
+        $sendto = "bloemoide@gmail.com";
+        $subject = "coucou, this is a mail about Symfony project";
+        $prestataire = new Prestataire();
+        $form = $this->createForm(PrestataireType::class, $prestataire);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $hash = $encoder->encodePassword($presta,$presta->getPassword());  // you can get error if the class doesn't implements the UserInterface and the requireds methods (see User)
-            $presta->setPassword($hash);
-         //   $presta->getPassword();
-            $manager->persist($presta);
+            $cryptogram = $encoder->encodePassword($prestataire,$prestataire->getPassword());  // you can get error if the class doesn't implements the UserInterface and the requireds methods (see User)
+            $prestataire->setPassword($cryptogram);
+            $notification->mailling($prestataire,$sendto,$subject,$mail = null);
+            $manager->persist($prestataire);
             $manager->flush();
 
             return $this->redirectToRoute('service');

@@ -6,7 +6,7 @@
                     <h2 class="text-center">Some of the suggested Services </h2>
                     <h3 class="text-center"> Services Found</h3>
                 </div>
-                {# Affichage services trouves #}
+                {# display of the services found #}
                 <div class="row">
                     {% if service is not empty %}
                         {% for s in service %}
@@ -21,10 +21,11 @@
                                             {% endif %}
                                             {% if service is not null %}
 
-                                                <img src="{{ asset('assets/img/tmp/product-5.jpg') }}"
-                                                     alt="{{ s.Name }}">
+                                                <img src="{{ asset('assets/img/tmp/product-5.jpg') }}" alt="{{ s.Name }}">
+                                            {% else  %}
+                                                <img src="{{ asset('assets/img/tmp/product-11.jpg') }}" alt="{{ s.Name }}">
                                             {% endif %}
-                                            <!--       <a class="read-more" href="">View</a> -->
+                                            <a class="read-more" href="{{ path('serviceDetails',{'slug':s.slug}) }}">show details</a>
                                         </div><!-- /.post-image -->
 
                                         <div class="post-content">

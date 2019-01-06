@@ -15,9 +15,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="userType", type="string")
  * @ORM\DiscriminatorMap({"user" = "User", "internaute" = "Internaute", "prestataire" = "Prestataire"})
- * @UniqueEntity(
- *     fields = {"email"}, message = "This email is already in use !"
- * )
+ * @UniqueEntity(fields = {"email"}, message = "This email is already in use !")
  *
  */
 Abstract class User implements UserInterface
@@ -64,7 +62,7 @@ Abstract class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=32)
      * @Assert\Length(min = "8", minMessage="votre password doit avoir min 8 chars")
-     * @Assert\EqualTo(propertyPath = "confirmPassword")
+     * @Assert\EqualTo(propertyPath = "confirmPassword", message = "votre password doit être le même partout !")
      *
      */
     protected $password;

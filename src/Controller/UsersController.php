@@ -24,6 +24,7 @@ class UsersController extends AbstractController
 
     /**
      * @Route ("/signin", name="signin")
+     * @param Prestataire|null $presta
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
@@ -63,7 +64,7 @@ class UsersController extends AbstractController
         }
         // render
 
-        return $this->render('users/authenticate/signIn.html.twig', [
+        return $this->render('security/login.html.twig', [
             'form' => $form->createView()
         ]);
     }
