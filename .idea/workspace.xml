@@ -38,6 +38,7 @@
       <change beforePath="$PROJECT_DIR$/templates/home/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/layout.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/inc/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inc/header.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/inc/prestaContainerDetails.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/imageUploader.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/inc/slider2.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inc/slider2.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/prestataire/list/recherchePrestataire.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/prestataire/list/recherchePrestataire.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/registration/registrate.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/registration/registrate.html.twig" afterDir="false" />
@@ -78,6 +79,22 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="willness: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="willness: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="user: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
     <select />
@@ -271,21 +288,21 @@
           <entry key="service" value="17" />
           <entry key="service_prestataire" value="3" />
           <entry key="stage" value="9" />
-          <entry key="twig" value="194" />
-          <entry key="user" value="16" />
+          <entry key="twig" value="196" />
+          <entry key="user" value="17" />
           <entry key="yaml" value="62" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="9" />
-          <entry key="Database Element" value="138" />
+          <entry key="Database Element" value="139" />
           <entry key="HTML" value="2" />
           <entry key="Image" value="8" />
           <entry key="JSON" value="2" />
           <entry key="PHP" value="440" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Twig" value="194" />
+          <entry key="Twig" value="196" />
           <entry key="YAML" value="62" />
         </counts>
       </usages-collector>
@@ -296,8 +313,8 @@
           <entry key="env" value="124" />
           <entry key="html" value="1" />
           <entry key="json" value="1" />
-          <entry key="php" value="18781" />
-          <entry key="twig" value="5349" />
+          <entry key="php" value="19303" />
+          <entry key="twig" value="5356" />
           <entry key="yaml" value="324" />
         </counts>
       </usages-collector>
@@ -306,11 +323,11 @@
           <entry key=".env file" value="124" />
           <entry key="HTML" value="1" />
           <entry key="JSON" value="1" />
-          <entry key="PHP" value="18768" />
+          <entry key="PHP" value="19290" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="SQL" value="13" />
           <entry key="Scratch" value="2" />
-          <entry key="Twig" value="5349" />
+          <entry key="Twig" value="5356" />
           <entry key="YAML" value="324" />
         </counts>
       </usages-collector>
@@ -332,11 +349,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="67" selection-start-line="67" selection-end-line="67" />
+            <state relative-caret-position="590">
+              <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" />
               <folding>
                 <element signature="e#34#55#0#PHP" expanded="true" />
               </folding>
@@ -345,8 +362,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/services.yaml">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/templates/inc/header.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1252">
+              <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/inc/slider2.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -375,9 +405,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env.dist">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/user">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -409,7 +448,6 @@
         <option value="$PROJECT_DIR$/templates/service/details/serviceDetailsPlus.html.twig" />
         <option value="$PROJECT_DIR$/templates/service/details/serviceDetails.html.twig" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
-        <option value="$PROJECT_DIR$/templates/inc/slider2.html.twig" />
         <option value="$PROJECT_DIR$/templates/emails/registrationreply.html.twig" />
         <option value="$PROJECT_DIR$/templates/security/registration/registrationSuccess.html.twig" />
         <option value="$PROJECT_DIR$/templates/prestataire/list/recherchePrestataire.html.twig" />
@@ -451,12 +489,13 @@
         <option value="$PROJECT_DIR$/src/Controller/ImageController.php" />
         <option value="$PROJECT_DIR$/src/Services/FileUploader.php" />
         <option value="$PROJECT_DIR$/templates/security/registration/registrate.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/templates/security/registration/preRegistration.html.twig" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/src/Security/UserAuthenticator.php" />
         <option value="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" />
+        <option value="$PROJECT_DIR$/templates/inc/slider2.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
       </list>
     </option>
   </component>
@@ -586,6 +625,35 @@
               <item name="willness" type="b2602c69:ProjectViewProjectNode" />
               <item name="willness" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="willness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="willness" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="willness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="willness" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="willness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="willness" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="willness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="willness" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="inc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="willness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="willness" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -806,12 +874,12 @@
       <workItem from="1550737879505" duration="7928000" />
       <workItem from="1550825477404" duration="4692000" />
       <workItem from="1550835020848" duration="2275000" />
-      <workItem from="1550841225289" duration="2559000" />
+      <workItem from="1550841225289" duration="10865000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="977956000" />
+    <option name="totallyTimeSpent" value="986262000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -826,7 +894,7 @@
     <frame x="64" y="-11" width="1537" height="912" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8247012" visible="true" weight="0.23169912" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8247012" visible="true" weight="0.17058429" />
       <window_info id="Structure" order="1" sideWeight="0.17529881" side_tool="true" weight="0.22901276" />
       <window_info id="Favorites" order="2" sideWeight="0.17529881" side_tool="true" weight="0.22901276" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -845,7 +913,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.038280725" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.15849563" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8275401" visible="true" weight="0.36064473" />
@@ -893,13 +961,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/ResetPasswordType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -951,13 +1012,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1155">
@@ -976,13 +1030,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/inc/header.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -1134,16 +1181,6 @@
     <entry file="file://$PROJECT_DIR$/vendor/symfony/security/Guard/AbstractGuardAuthenticator.php" />
     <entry file="file://$PROJECT_DIR$/vendor/symfony/security/Http/Util/TargetPathTrait.php" />
     <entry file="file://$PROJECT_DIR$/vendor/symfony/security/Core/Exception/AuthenticationException.php" />
-    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-          <folding>
-            <element signature="e#34#55#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/services.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1190,6 +1227,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.env.dist">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://4a1ca760-211a-41d8-a14e-c0790bb97811/schema/willness/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/inc/header.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1252">
+          <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/inc/slider2.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" />
+          <folding>
+            <element signature="e#34#55#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

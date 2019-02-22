@@ -20,6 +20,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -44,7 +45,6 @@ class SecurityController extends AbstractController
     public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, RegistrationNotifications $notification)
     {
         $sendto = "bloemoide@gmail.com";
-        // $sendfrom = "bloemoide@gmail.com";
         $subject = "coucou, this is a mail about Symfony project";
 
         $prestataire = new Prestataire();
@@ -132,8 +132,7 @@ class SecurityController extends AbstractController
         return $this->render('security/login.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error]);
-        /*  'form' => $form->createView()
-             'error' => $error ]); */
+
     }
 
     /**
