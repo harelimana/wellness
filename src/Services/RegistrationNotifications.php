@@ -25,7 +25,7 @@ class RegistrationNotifications{
     }
 
     /**
-     * @param $name
+     * @param $prestataire
      * @param $subject
      * @param $sendto
      * @return mixed
@@ -33,18 +33,19 @@ class RegistrationNotifications{
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function mailling(Prestataire $name, $subject, $sendto)
+    public function mailling(Prestataire $prestataire, $subject, $sendto)
     {
-        $message = (new \Swift_Message('Hello :', $name->getName()))
+        $sendto = "bloemoide@gmail.com";
+        $message = (new \Swift_Message('Hello :', $prestataire->getName()))
             ->setFrom('bloemoide@gmail.com')
             ->setTo($sendto) //'recipient.harelimana@gmail.com'
-            ->setReplyTo($name->getEmail()) //'recipient.harelimana@gmail.com'
+            ->setReplyTo($prestataire->getEmail()) //'recipient.harelimana@gmail.com'
             ->setSubject($subject)
             ->setBody(
                 $this->renderer->render(
                 // templates/emails/registrationreply.html.twig
                     'emails/registrationreply.html.twig',
-                    array('name' => $name)
+                    array('name' => $prestataire)
                 ),
                 'text/html'
             )
@@ -52,6 +53,6 @@ class RegistrationNotifications{
 
         $this->mailer->send($message);
 
-        return $this->renderer->render('security/registration/registrationSuccess.html.twig',['name'=>$name]); //not required but useful
+        return $this->renderer->render('security/registration/registrationSuccess.html.twig',['name'=>$prestataire]); //not required but useful
     }
 }
