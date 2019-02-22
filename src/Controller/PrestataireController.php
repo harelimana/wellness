@@ -51,7 +51,7 @@ class PrestataireController extends AbstractController
             $prestataire = new Prestataire();
         }
         $form = $this->createForm(PrestataireType::class);
-        /** si le formulaire a été soumis et qu'il est valide */
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($prestataire);
@@ -128,7 +128,6 @@ class PrestataireController extends AbstractController
      */
     public function recherchePrestaires(Request $request)
     {
-
         $doctrine = $this->getDoctrine();
         $repoCommunes = $doctrine->getRepository(Commune::class);
         $repoServices = $doctrine->getRepository(Service::class);
@@ -138,9 +137,9 @@ class PrestataireController extends AbstractController
         $prestataires = $repoPrestataire->findAll(); // request dans repo Prestataire
 
         return $this->render('prestataire/list/recherchePrestataire.html.twig', [
-            'communes'=>$communes,
+            'prestataires'=>$prestataires,
             'services'=>$services,
-            'prestataires'=>$prestataires
+            'communes'=>$communes
         ]);
     }
 

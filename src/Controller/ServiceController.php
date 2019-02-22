@@ -29,7 +29,7 @@ class ServiceController extends AbstractController
     /**
      * @Route("/details_service/{id}", name="service_details")
      */
-    public function detailsAction($id)
+    public function detailsServiceByIdD($id)
     {
         $services = $this->getDoctrine()
             ->getRepository(Service::class)

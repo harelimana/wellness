@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Notifications;
+namespace App\Services;
 
 use App\Entity\Prestataire;
 use Swift_mailer;

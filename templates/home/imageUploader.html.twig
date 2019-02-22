@@ -1,0 +1,25 @@
+{% extends "layout.html.twig" %}
+{% block container %}
+    <div class="page-header">
+        <h1>File uploader</h1>
+    </div>
+    <div class="cards-simple-wrapper">
+        <div class="row">
+
+
+                        <div class="card-simple-background">
+                            <div class="card-simple-content">
+                                <h2><a href="listing-detail.html">Image uploading</a></h2>
+
+                                <div class="card-simple-actions">
+                                    <a href="#" class="fa fa-bookmark-o"></a>
+                                    <a href="listing-detail.html" class="fa fa-search"></a>
+                                    <a href="#" class="fa fa-heart-o"></a>
+                                </div>
+                                {{ form(imgUpload) }}
+                            </div>
+                        </div>
+
+        </div>
+    </div>
+{% endblock %}

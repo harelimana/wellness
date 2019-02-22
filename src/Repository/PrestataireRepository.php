@@ -70,6 +70,7 @@ class PrestataireRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
     /*
     public function findOneBySomeField($value): ?Prestataire
     {

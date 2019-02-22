@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Prestataire;
 use App\Entity\User;
+use App\Form\LoginType;
 use App\Form\PrestataireType;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,38 +25,35 @@ class UsersController extends AbstractController
 
     /**
      * @Route ("/signin", name="signin")
-     * @param Prestataire|null $presta
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function signIn(Prestataire $presta = null, Request $request)
+    public function signIn(Request $request)
     {
-        if(!$presta){
-            $presta = new Prestataire();
-        }
 
-        $form = $this->createForm(PrestataireType::class, $presta, ['method' => 'POST']);
+        $presta = new Prestataire();
+
+
+        $form = $this->createForm(LoginType::class, $presta);
         $form->handleRequest($request);
 
         // check if the authenticating user already exist
 
-        $doctrine = $this->getDoctrine();
-        $email = $presta->getEmail();
-        $existingUser = $doctrine->getRepository('App:User')->findBy(['email' => $email]);
+        $email = $this->getDoctrine()->getRepository(User::class)->findOneBy(['email'=>$request]);
 
-        if ($existingUser) {
+        if ($email) {
             $this->addFlash('notice', 'This email already in use !');
             return $this->redirectToRoute('signin');
         }
 
         // if the user passes
 
-        if ($form->isSubmitted() && ($form->isValid())) {
+       if ($form->isSubmitted() && ($form->isValid())) {
 
             $password = $presta->getPassword();
                         $presta->setPassword($password);
 
-            $em = $doctrine->getManager();
+            $em = $this->getDoctrine()->getManager();
             $em->persist($presta);
 
             $this->addFlash('success', 'Authentication successfull !');

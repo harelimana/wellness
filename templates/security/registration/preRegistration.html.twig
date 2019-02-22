@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="main">
+        <div class="main-inner">
+            <div class="container">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <div class="page-title">
+                                <h1>Registration</h1>
+                            </div><!-- /.page-title -->
+
+                            <form method="POST" action="{{ path('securitylogin') }}">
+
+                                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                                <div class="form-group">
+                                    <label for="login-form-email">E-mail</label>
+                                    <input type="email" class="form-control" required name="_username" id="inputEmail" placeholder="email address ...">
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group">
+                                    <label for="login-form-password">Password</label>
+                                    <input type="password" class="form-control" required name="_password" id="inputPassword" placeholder="password ...">
+                                </div><!-- /.form-group -->
+
+                                <input type="hidden" name="_csrf_token"
+                                       value="{{ csrf_token('authenticate') }}"
+                                >
+                                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                            </form>
+                        </div><!-- /.col-sm-4 -->
+                    </div><!-- /.row -->
+
+                </div><!-- /.content -->
+            </div><!-- /.container -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+{% endblock %}

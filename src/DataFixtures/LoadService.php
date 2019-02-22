@@ -20,13 +20,13 @@ class LoadService extends Fixture
 
         for ($i = 0; $i < 10; $i++) {
             $service = new Service();
-          //  $prestataire = new Prestataire();
+            $prestataire = new Prestataire();
             $service->setName($data->name);
             $service->setDescription($data->text);
             $service->setEnAvant($data->boolean);
             $service->setValide($data->boolean);
             $service->setSlug($data->slug);
-         //   $service->addPrestataire($this->getReference('prestataire' . rand(1,8)));
+           // $service->addPrestataire($this->getReference('prestataire' . rand(1,8)));
 
             $manager->persist($service);
 

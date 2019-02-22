@@ -193,15 +193,15 @@ class Stage
 
     /**
      * @param Prestataire $prestataire
-     * @return Stage
+     * @return ArrayCollection
      */
-    public function addPrestataire(Prestataire $prestataire): self
+    public function addPrestataire(Prestataire $prestataire): ArrayCollection
     {
         if(!$this->prestataire->contains($prestataire)){
             $this->prestataires[] = $prestataire;
             $prestataire->addStage($this);
         }
-        return $this;
+        return $this->prestataires;
     }
 
     /**

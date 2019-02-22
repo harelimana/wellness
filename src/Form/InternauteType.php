@@ -12,20 +12,10 @@ class InternauteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('addressNumber')
-            ->add('addressRue')
+
             ->add('email')
-            ->add('banni')
-            ->add('inscription')
-            ->add('inscriptionDate')
             ->add('password')
-            ->add('successAttempt')
-            ->add('firstname')
-            ->add('lastname')
-            ->add('codepostal')
-            ->add('localite')
-            ->add('commune')
-            ->add('bloc')
+            ->add('confirmPassword')
         ;
     }
 

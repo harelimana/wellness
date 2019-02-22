@@ -30,7 +30,7 @@ class Image
     /**
      * @return int
      */
-    public function getOrdre(): int
+    public function getOrdre()
     {
         return $this->ordre;
     }
@@ -38,7 +38,7 @@ class Image
     /**
      * @param int $ordre
      */
-    public function setOrdre(int $ordre = 1): void
+    public function setOrdre(int $ordre = 1)
     {
         $this->ordre = $ordre;
     }
@@ -48,12 +48,12 @@ class Image
         return $this->id;
     }
 
-    public function getImage(): ?string
+    public function getImage()
     {
         return $this->Image;
     }
 
-    public function setImage(?string $Image): self
+    public function setImage($Image): self
     {
         $this->Image = $Image;
 

@@ -1,89 +1,77 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<div class="content">
+    <div class="content">
 
-    <div class="row">
-        <div class="col-sm-4 col-sm-offset-4">
-            <div class="page-title">
-                <h1>Registration</h1>
-                <hr>
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <div class="page-title">
+                    <hr>
+                    <h1>Registration</h1>
+                    <hr>
+                </div>
 
                 {{ form_start(form) }}
 
-                <form method="post" action="?">
-
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                {{ form_row(form.name, {'label':'Last Name','attr':{'placeholder':'Your last name'}}) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.email) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.password) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.confirmPassword) }}
-                            </div><!-- /.form-group -->
-
-                            <div class="form-group">
-                                {{ form_row(form.website) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.telnumber) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.addressRue) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.addressNumber) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.localite) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.codepostal) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.commune) }}
-                            </div><!-- /.form-group -->
-
-                            <div class="form-group">
-                                {{ form_row(form.image) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.logo) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.inscriptionDate) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.inscription) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.banni) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.slug) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.tvanumber) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                {{ form_row(form.successAttempt) }}
-                            </div><!-- /.form-group -->
-
-                            <button type="submit" class="btn btn-primary btn-xs pull-right">Register
-                            </button>
-
-                            {{ form_end(form) }}
+                <form method="post" action="">
+                    <div class="">
+                        <div class="col-md-5 form-group">
+                            {{ form_row(form.name, {'label':'Last Name','attr':{'placeholder':'Your last name'}}) }}
+                            {{ form_row(form.email) }}
                         </div><!-- /.form-group -->
-                    </div><!-- /. row -->
-                </form>
-            </div><!-- /.col-sm-4 -->
-        </div><!-- /.row -->
 
-    </div><!-- /.content -->
-</div><!-- /.content -->
+                        <div class="col-md-5 form-group ">
+                            {{ form_row(form.password) }}
+                            {{ form_row(form.confirmPassword) }}
+                            {{ form_row(form.successAttempt) }}
+                        </div><!-- /.form-group -->
+
+
+                        <div class="col-md-5 form-group ">
+                            {{ form_row(form.website) }}
+                            {{ form_row(form.telnumber) }}
+                        </div><!-- /.form-group -->
+
+                        <div class="col-md-5 form-group ">
+                            {{ form_row(form.addressRue) }}
+                            {{ form_row(form.addressNumber) }}
+                        </div><!-- /.form-group -->
+
+                        <div class="col-md-5 form-group ">
+                            {{ form_row(form.localite) }}
+                            {{ form_row(form.codepostal) }}
+                        </div><!-- /.form-group -->
+
+                        <div class="col-md-5 form-group ">
+                            {{ form_row(form.commune) }}
+                        </div><!-- /.form-group -->
+
+                        <div class="col-md-5 form-group ">
+                            {{ form_row(form.image) }}
+                            {{ form_row(form.logo) }}
+                        </div><!-- /.form-group -->
+
+                        <div class="col-md-5 form-group ">
+                            {{ form_row(form.inscriptionDate) }}
+                            {{ form_row(form.inscription) }}
+                        </div><!-- /.form-group -->
+                        <div class="col-md-5 form-group ">
+                            {{ form_row(form.banni) }}
+                            {{ form_row(form.slug) }}
+                        </div><!-- /.form-group -->
+
+                        <div class="col-md-5 form-group ">
+                            {{ form_row(form.tvanumber) }}
+                        </div><!-- /.form-group -->
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-xs pull-right">Register
+                        </button>
+                    </div>
+                </form>
+                {{ form_end(form) }}
+            </div>
+        </div><!-- /.col-sm-4 -->
+    </div><!-- /.row -->
+
+
 {% endblock %}

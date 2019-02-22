@@ -16,6 +16,7 @@ class LoadStage extends Fixture implements DependentFixtureInterface
 
         for ($i = 0; $i < 10; $i++) {
             $stage = new Stage();
+
             $stage->setName($data->name);
             $stage->setDescription($data->text);
             $stage->setAffichageDebut($data->dateTime);
@@ -24,7 +25,7 @@ class LoadStage extends Fixture implements DependentFixtureInterface
             $stage->setFinStage($data->dateTime);
             $stage->setMoreInfo($data->text);
             $stage->setTarif($data->NumberBetween(20, 500));
-            $stage->addPrestataire($this->getReference('prestataire' . rand(1, 8)));
+     //       $stage->addPrestataire($this->getReference('prestataire' . rand(1, 8)));
             $manager->persist($stage);
 
             $this->setReference("stage" . $i, $stage);
@@ -32,6 +33,7 @@ class LoadStage extends Fixture implements DependentFixtureInterface
 
         $manager->flush();
     }
+
     public function getDependencies()
     {
         return [LoadPrestataire::class];

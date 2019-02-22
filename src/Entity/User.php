@@ -27,6 +27,7 @@ Abstract class User implements UserInterface
      */
     private $id;
 
+
     protected $username;
 
     /**
@@ -41,6 +42,8 @@ Abstract class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=32)
+     * @Assert\NotBlank(message = "Blank email is not allowed !")
+     * @Assert\Email(message = "This email is invalid !")
      */
     protected $email;
 
@@ -63,25 +66,11 @@ Abstract class User implements UserInterface
      * @ORM\Column(type="string", length=32)
      * @Assert\Length(min = "8", minMessage="votre password doit avoir min 8 chars")
      * @Assert\EqualTo(propertyPath = "confirmPassword", message = "votre password doit être le même partout !")
+     * @Assert\NotBlank(message = "Blank password is not allowed !")
      *
      */
     protected $password;
 
-    /**
-     * @return mixed
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * @param mixed $username
-     */
-    public function setUsername($username): void
-    {
-        $this->username = $username;
-    }
 
     /**
      * @var
@@ -90,20 +79,10 @@ Abstract class User implements UserInterface
     protected $confirmPassword;
 
     /**
-     * @return mixed
+     * @var
+     * @Assert\EqualTo(propertyPath = "password", message = "votre password doit être le même partout !")
      */
-    public function getConfirmPassword()
-    {
-        return $this->confirmPassword;
-    }
-
-    /**
-     * @param mixed $confirmPassword
-     */
-    public function setConfirmPassword($confirmPassword): void
-    {
-        $this->confirmPassword = $confirmPassword;
-    }
+    protected $resetPassword;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -128,11 +107,66 @@ Abstract class User implements UserInterface
      */
     private $commune;
 
+    /**
+     * @ORM\Column(type="string", length=45, nullable=true, unique=true)
+     */
+    protected $token;
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username): void
+    {
+        $this->username = $username;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getConfirmPassword()
+    {
+        return $this->confirmPassword;
+    }
+
+    /**
+     * @param mixed $confirmPassword
+     */
+    public function setConfirmPassword($confirmPassword): void
+    {
+        $this->confirmPassword = $confirmPassword;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getResetPassword()
+    {
+        return $this->resetPassword;
+    }
+
+    /**
+     * @param mixed $resetPassword
+     */
+    public function setResetPassword($resetPassword): void
+    {
+        $this->resetPassword = $resetPassword;
+    }
+
 
     public function getAddressNumber(): ?string
     {
@@ -277,9 +311,14 @@ Abstract class User implements UserInterface
     public function getSalt(){
 
     }
-    public function getRoles(){
-        return ['ROLE_USER'];
+    public function getRoles() {
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER,ROLE_PRESTATAIRE,ROLE_ADMIN';
+        return $roles;
+    }
 
+    public function setRoles(array $roles) {
+        return $this->roles = $roles;
     }
 
     /**
@@ -292,6 +331,23 @@ Abstract class User implements UserInterface
             ->getRepository(User::class)
             ->lastHiredPrestataire();
     }
+
+    /**
+     * @return mixed
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param mixed $token
+     */
+    public function setToken($token): void
+    {
+        $this->token = $token;
+    }
+
 
     /**
      * @param $id

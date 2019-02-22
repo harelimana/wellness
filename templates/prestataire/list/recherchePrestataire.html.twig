@@ -21,8 +21,8 @@
                             <option value="{{ c.commune }}">{{ c.commune }}</option>
                         {% endfor %}
                     </select>#}
-                    <select class="form-control" name="cat_serv" id="init">
-                        <option value="" style="color: white; background-color : rgb(0,134,117);">Faites votre choix
+                    <select class="form-control" name="commune" id="init">
+                        <option value="" style="color: white; background-color : rgb(0,134,117);">Select one commune
                         </option>
                         {% for c in communes %}
                             <option value="{{ c.commune }}">{{ c.commune }}</option>
@@ -36,8 +36,8 @@
             <div class="col-sm-12 col-md-4">
                 <div class="form-group">
                     <span>Categories de Services</span>
-                    <select class="form-control" name="cat_serv" id="init">
-                        <option value="" style="color: white; background-color : rgb(0,134,117);">Faites votre choix
+                    <select class="form-control" name="service" id="init">
+                        <option value="" style="color: white; background-color : rgb(0,134,117);">Select one service
                         </option>
                         {% for s in services %}
                             <option value="{{ s.Name }}">{{ s.Name }}</option>

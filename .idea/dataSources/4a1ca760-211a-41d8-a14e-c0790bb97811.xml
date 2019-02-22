@@ -1393,44 +1393,58 @@ service_id</ColNames>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="315" parent="218" name="userType">
+    <column id="315" parent="218" name="token">
       <Position>13</Position>
+      <DataType>varchar(45)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="316" parent="218" name="userType">
+      <Position>14</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="316" parent="218" name="IDX_8D93D649C9B1D722">
+    <index id="317" parent="218" name="UNIQ_8D93D6495F37A13B">
+      <ColNames>token</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="318" parent="218" name="IDX_8D93D649C9B1D722">
       <ColNames>codepostal_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="317" parent="218" name="IDX_8D93D649924DD2B5">
+    <index id="319" parent="218" name="IDX_8D93D649924DD2B5">
       <ColNames>localite_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="318" parent="218" name="IDX_8D93D649131A4F72">
+    <index id="320" parent="218" name="IDX_8D93D649131A4F72">
       <ColNames>commune_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="319" parent="218" name="PRIMARY">
+    <key id="321" parent="218" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="320" parent="218" name="FK_8D93D649C9B1D722">
+    <key id="322" parent="218" name="UNIQ_8D93D6495F37A13B">
+      <ColNames>token</ColNames>
+      <UnderlyingIndexName>UNIQ_8D93D6495F37A13B</UnderlyingIndexName>
+    </key>
+    <foreign-key id="323" parent="218" name="FK_8D93D649C9B1D722">
       <ColNames>codepostal_id</ColNames>
       <RefSchemaName>willness</RefSchemaName>
       <RefTableName>code_postal</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>set-null</OnDelete>
     </foreign-key>
-    <foreign-key id="321" parent="218" name="FK_8D93D649924DD2B5">
+    <foreign-key id="324" parent="218" name="FK_8D93D649924DD2B5">
       <ColNames>localite_id</ColNames>
       <RefSchemaName>willness</RefSchemaName>
       <RefTableName>localite</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>set-null</OnDelete>
     </foreign-key>
-    <foreign-key id="322" parent="218" name="FK_8D93D649131A4F72">
+    <foreign-key id="325" parent="218" name="FK_8D93D649131A4F72">
       <ColNames>commune_id</ColNames>
       <RefSchemaName>willness</RefSchemaName>
       <RefTableName>commune</RefTableName>

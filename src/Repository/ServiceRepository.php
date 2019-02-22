@@ -101,4 +101,21 @@ class ServiceRepository extends ServiceEntityRepository
 
         }
 
+        /**
+         * @param int $max
+         * @return mixed
+         */
+        public function misEnAvant($max = 4){
+
+            $query = $this->createQueryBuilder('s')
+                ->where('s.enAvant = true')
+                ->andWhere('s.valid = true')
+                ->orderBy('s.Name' , 'ASC')
+                ->setMaxResults($max);
+
+            return $query
+                ->getQuery()
+                ->getResult();
+
+        }
     }

@@ -31,11 +31,10 @@ class LoadPrestataire extends Fixture implements DependentFixtureInterface
             $prestataire = new Prestataire();
             $service = new Service();
             $image = new Image();
-            $logo = new Prestataire();
+         //   $logo = new Prestataire();
             $stage = new Stage();
-            $image->setImage('http://placehold.it/350x350');
-            $image->setOrdre(1);
 
+            $image->setOrdre(1);
 
             //affectation
 
@@ -51,22 +50,21 @@ class LoadPrestataire extends Fixture implements DependentFixtureInterface
             $prestataire->setLocalite($this->getReference('localite' . rand(1, 8)));
             $prestataire->setCommune($this->getReference('commune' . rand(1, 8)));
          //   $prestataire->addService($this->getReference('service' . rand(1,8)));
-            $prestataire->addStage($this->getReference('stage' . rand(1,8)));
+          //  $prestataire->addStage($this->getReference('stage' . rand(1,8)));
             $prestataire->setName($data->name);
             $prestataire->setTelnumber($data->phoneNumber);
             $prestataire->setTvanumber($data->numberBetween(20,21));
             $prestataire->setWebsite($data->url);
             $prestataire->setSlug($data->text);
-            $image->setImage('http://placehold.it/350x400');
-            $prestataire->setLogo($image);
+            $prestataire->setLogo($image->setImage('http://placehold.it/350x350'));
 
             $stage->setDescription($data->text);
 
 
             $manager->persist($prestataire);
 
-            $this->addReference('prestataire' . $i, $prestataire);
-            $this->setReference('stage' . $i, $stage);
+           $this->addReference('prestataire' . $i, $prestataire);
+           // $this->setReference('stage' . $i, $stage);
 
         }
 

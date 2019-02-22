@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Prestataire;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -19,7 +20,15 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
-
+    public function findOnedBy($mail): ?User
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.mail = :mail')
+            ->setParameter('mail', $mail)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 //    /**
 //     * @return User[] Returns an array of User objects
 //     */

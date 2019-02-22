@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block details %}
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+            <br/>
+            <div class="page-title">
+                <h1>Inscription</h1>
+            </div><!-- /.page-title -->
+
+            {{ form_start(form, {attr:{novalidate : 'novalidate'}}) }}
+            <div class="form-group" >
+                {{ form_row(form.email) }}
+            </div><!-- /.form-group -->
+
+            <div class="form-group">
+                {{ form_row(form.password) }}
+            </div><!-- /.form-group -->
+
+
+            <button type="submit" class="btn btn-primary pull-right">Inscription</button>
+            {{ form_end(form) }}
+        </div><!-- /.col-sm-4 -->
+    </div><!-- /.row -->
+    <br/>
+{% endblock %}
