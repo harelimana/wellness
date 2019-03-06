@@ -91,7 +91,6 @@ sudo git push
 
 https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2/les-relations-entre-entites-avec-doctrine2
 
-478831354
 
 //resize images 
 convert public/assets/img/tmp/our-2.jpg -resize 1240x450 public/assets/img/tmp/our-2.jpg
