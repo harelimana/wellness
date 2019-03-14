@@ -20,20 +20,16 @@
         <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.png">
     {% endblock %}
 </head>
-<div>
-    {% include("inc/header.html.twig") %}
-</div>
-<div>
-    {% include("inc/slider2.html.twig") %}
-</div>
+
 <body>
+
 <div class="page-wrapper">
-    {% block body %}
-    {% endblock %}
- </div><!-- /.page-wrapper -->
-<div>
-    {% include("inc/footer.html.twig") %}
-</div>
+    {% block header %}{# The nav #}{% endblock %}
+    {% block authenticatedUserNavigator %}{# The authenitcated user Nav #} {% endblock %}
+    {% block body %}{% endblock %}
+    {% block footer %}{# The footer#}{% endblock %}
+</div><!-- /.page-wrapper -->
+
 {% block javascripts %}
     <script src="/public/assets/js/jquery.js" type="text/javascript"></script>
     <script src="/public/assets/js/map.js" type="text/javascript"></script>

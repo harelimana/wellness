@@ -22,7 +22,10 @@
                                     <label for="login-form-password">Password</label>
                                     <input type="password" class="form-control" required name="_password" id="inputPassword" placeholder="password ...">
                                 </div><!-- /.form-group -->
-
+                                <div class="form-group">
+                                    <label for="login-form-usertype">Usertype</label>
+                                    <input type="text" class="form-control" required name="_usertype" id="inputUserType" placeholder="Prestataire ou Internaute ? ...">
+                                </div><!-- /.form-group -->
                                 <input type="hidden" name="_csrf_token"
                                        value="{{ csrf_token('authenticate') }}"
                                 >

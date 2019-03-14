@@ -23,12 +23,14 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Security\Http\Authorization\AccessDeniedHandlerInterface;
 use Twig\Environment;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-class SecurityController extends AbstractController
+class SecurityController extends AbstractController implements AccessDeniedHandlerInterface
 {
 
     /**
@@ -78,24 +80,24 @@ class SecurityController extends AbstractController
      */
     public function preRegistration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, RegistrationNotifications $notification)
     {
-        $newInternaute = new Internaute();
+        $prestataire = new Prestataire();
 
-        $form = $this->createForm(InternauteType::class, $newInternaute);
+        $form = $this->createForm(InternauteType::class, $prestataire);
         $form->handleRequest($request);
 
-        $email = $newInternaute->getEmail();
+        $email = $prestataire->getEmail();
         $userExist = $this->getDoctrine()->getRepository(User::class)->findOneBy(['email'=>$email]);
 
         if ($form->isSubmitted() && ($form->isValid())) {
 
             if (!$userExist) {
 
-                $cryptogram = $encoder->encodePassword($newInternaute, $newInternaute->getPassword());  // you can get error if the class doesn't implements the UserInterface and the requireds methods (see User)
+                $cryptogram = $encoder->encodePassword($prestataire, $prestataire->getPassword());  // you can get error if the class doesn't implements the UserInterface and the requireds methods (see User)
                 $newInternaute->setPassword($cryptogram);
 
-                $notification->mailling($newInternaute, $subject, $sendto);
+                $notification->mailling($prestataire, $subject, $sendto);
 
-                $manager->persist($newInternaute);
+                $manager->persist($prestataire);
                 $manager->flush();
 
             } else {
@@ -144,4 +146,18 @@ class SecurityController extends AbstractController
         return $this->render('security/logout.html.twig');
     }
 
+    /**
+     * Handles an access denied failure.
+     *
+     * @param Request $request
+     * @param AccessDeniedException $accessDeniedException
+     * @return Response may return null
+     */
+    public function handle(Request $request, AccessDeniedException $accessDeniedException)
+    {
+        if($accessDeniedException){
+            return $this->redirectToRoute('home');
+        }
+        return new Response($content, 403);
+    }
 }

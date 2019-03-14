@@ -1,14 +1,22 @@
 {% extends "base.html.twig" %}
 
-{% block body %}
-    {% block container %}
-        <div class="container">
-            <div class="content">
-                {% block details %}
+{% block header %}{% include 'inc/header.html.twig' %}{% endblock %}
 
-                {% endblock %}
+{% block body %}
+    {% block slider %}{% include 'inc/slider2.html.twig' %}{% endblock %}
+    <div class="main ">
+        <div class="main-inner">
+            <div class="container">
+                <div class="content">
+                    {% block banner %}{% endblock %} {# the banner bloc #}
+                    {% block mainbloc %}
+                        {% block searchingerea %}{% endblock %} {# The searching area on the forst page #}
+                        {% block prestataires %}{% endblock %}{# dispaly of the last 4 prestataires with the last services #}
+                        {% block details %}{% endblock %} {# override #}
+                    {% endblock %} {# the main bloc#}
+                </div>
             </div>
         </div>
-    {% endblock %}
+    </div>
 {% endblock %}
-
+{% block footer %}{% include 'inc/footer.html.twig' %}{% endblock %}

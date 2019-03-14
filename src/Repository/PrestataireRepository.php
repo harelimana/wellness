@@ -48,12 +48,13 @@ class PrestataireRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function findServicesByPrestataire($id)
+    public function findServicesByPrestataire($slug)
     {
+
         return $this->createQueryBuilder('sp')
-            ->setParameter('id', $id)
-            ->where('sp.id = :id')
-            ->orderBy('sp.id', 'DESC')
+            ->setParameter('slug', $slug)
+            ->where('sp.id = :slug')
+            ->orderBy('sp.slug', 'DESC')
             ->setMaxResults(8)
             ->getQuery()
             ->getResult();

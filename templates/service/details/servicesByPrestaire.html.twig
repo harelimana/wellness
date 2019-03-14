@@ -1,10 +1,34 @@
 {% extends 'layout.html.twig' %}
 {% block details %}
-<div>
-    {% for serv in service %}
-    <ul>
-        {{ serv }}
-    </ul>
-    {% endfor %}
-</div>
+    <div class="col-sm-12">
+        <h2 id="reviews"> Services by Prestataire</h2>
+        <div class="posts posts-condensed">
+
+            <table id="categories" class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                </tr>
+                {% if service is empty %}
+                    <tr>
+                        <td class="pasde">PAS DE CATEGORIES ACTUELLEMENT</td>
+                    </tr>
+                {% else %}
+                    {% for serv in service %}
+                        <tr>
+                            <td>
+                                <div class="roundedImage">
+                                    <img src='{{ serv }}' style="height: 40px; width: 40px;">
+                                </div><!-- /.user-image -->
+                            </td>
+                            <td>{{ service.name }}</td>
+                            <td>{{ service.description }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </table>
+
+        </div>
+    </div>
 {% endblock %}

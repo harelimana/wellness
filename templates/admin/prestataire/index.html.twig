@@ -1,20 +1,55 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Prestataires list</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Web</th>
+            <th>Emaildecontact</th>
+            <th>Telephone</th>
+            <th>Numerotva</th>
+            <th>Logo</th>
+            <th>Dateinscription</th>
+            <th>Slug</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for prestataire in prestataires %}
+            <tr>
+                <td><a href="{{ path('prestataire_show', { 'id': prestataire.id }) }}">{{ prestataire.id }}</a></td>
+                <td>{{ prestataire.name }}</td>
+                <td>{{ prestataire.description }}</td>
+                <td>{{ prestataire.website }}</td>
+                <td>{{ prestataire.email }}</td>
+                <td>{{ prestataire.telnumber }}</td>
+                <td>{{ prestataire.tvanumber }}</td>
+                <td>{{ prestataire.image }}</td>
+                <td>{% if prestataire.inscriptiondate %}{{ prestataire.inscriptiondate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ prestataire.slug }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('prestatairelist', { 'id': prestataire.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('modifyprestataire', { 'id': prestataire.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    This friendly message is coming from:
     <ul>
-        <li>Your controller at <code><a href="{{ 'src/Controller/AdminController.php'|file_link(0) }}">src/Controller/AdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'templates/admin/index.html.twig'|file_link(0) }}">templates/admin/index.html.twig</a></code></li>
+        <li>
+            <a href="{{ path('prestataire_new') }}">Create a new prestataire</a>
+        </li>
     </ul>
-</div>
 {% endblock %}

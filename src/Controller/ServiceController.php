@@ -63,9 +63,9 @@ class ServiceController extends AbstractController
      * @param $slug
      * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function listServicesByPrestataire($arg = 74){
+    public function listServicesByPrestataire($slug){
         $services = $this->getDoctrine()->getRepository(Prestataire::class);
-        $services->findServicesByPrestataire($arg);
+        $services->findServicesByPrestataire($slug);
         if (isset($services) !== false) {
             return $this->render('/service/details/servicesByPrestaire.html.twig', ['service' => $services]);
         } else {
