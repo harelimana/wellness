@@ -358,4 +358,12 @@ Abstract class User implements UserInterface
        return $this->getDoctrine()->getRepository(User::class)->findServiceByPrestataire($id);
         //    ->findOneBy($id);
     }
+
+    /**
+     * @return bool|string
+     */
+    public function getClass()
+    {
+        return substr(strrchr(__CLASS__, "\\"), 1);
+    }
 }
