@@ -24,10 +24,10 @@
 <body>
 
 <div class="page-wrapper">
-    {% block header %}{# The nav #}{% endblock %}
+    {% block header %}{# The nav #}{% include 'inc/header.html.twig' %}{% endblock %}
     {% block authenticatedUserNavigator %}{# The authenitcated user Nav #} {% endblock %}
     {% block body %}{% endblock %}
-    {% block footer %}{# The footer#}{% endblock %}
+    {% block footer %}{# The footer#}{% include 'inc/footer.html.twig' %}{% endblock %}
 </div><!-- /.page-wrapper -->
 
 {% block javascripts %}

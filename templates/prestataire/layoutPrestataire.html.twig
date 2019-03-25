@@ -3,13 +3,18 @@
 {% block title %}Prestataire Area{% endblock %}
 
 {% block body %}
-    {% block container %}
-        <div class="container">
-        <div class="content">
-                {% block details %}
-
-                {% endblock %}
+    <div class="main ">
+        <div class="main-inner">
+            <div class="container">
+                <div class="content">
+                    {% block banner %}{% endblock %} {# the banner bloc #}
+                    {% block mainbloc %}
+                        {% block searchingerea %}{% endblock %} {# The searching area on the forst page #}
+                        {% block prestataires %}{% endblock %}{# dispaly of the last 4 prestataires with the last services #}
+                        {% block details %}{% endblock %} {# override #}
+                    {% endblock %} {# the main bloc#}
+                </div>
+            </div>
         </div>
-        </div>
-    {% endblock %}
+    </div>
 {% endblock %}
